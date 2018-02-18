@@ -1,4 +1,17 @@
-body-container {
+html {
+	-moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  &, &:before, &:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+}
+.body-container {
   width: 100%;
   margin: 0 auto;
 }
