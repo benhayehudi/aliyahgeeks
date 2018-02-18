@@ -1,9 +1,15 @@
 import React from 'react';
+import Header from '../../header/components/Header';
 
 class Home extends React.Component {
   render() {
     return (
-      <h1>AliyahGeeks</h1>
+      <div>
+        <Header />
+        <div className="body-container">
+          CONTENT GOES HERE
+        </div>
+      </div>
     );
   }
 }

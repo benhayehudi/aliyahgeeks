@@ -1,0 +1,28 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+#align-right, #align-left {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+#align-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#align-left {
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  padding: 10px;
+  align-items: flex-start;
+}
