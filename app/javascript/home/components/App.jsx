@@ -7,12 +7,10 @@ import Home from './Home'
 
 const App = (props) => (
   <Router>
-	<div>
 	  <Route
 	    path='/'
 	    component={Home}
 	  />
-	</div>
   </Router>
 )
 

@@ -5,13 +5,13 @@ import Navbar from '../../navbar/components/Navbar';
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header />
         <Navbar />
         <div className="body-container">
           CONTENT GOES HERE
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -8,8 +8,8 @@ class Header extends React.Component {
           <h1>AliyahGeeks</h1>
         </div>
         <div id="align-right">
-          <h1>Share Your Story</h1>
-          <h1>Your Profile</h1>
+          <div className="btn">Share Your Story</div><br/>
+          <div className="btn">Your Profile</div>
         </div>
       </div>
     )

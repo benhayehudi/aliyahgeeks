@@ -4,8 +4,17 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar-container">
-        <div className="navbar">
-          <h1>navbar</h1>
+        <div className="navbar-item">
+          <h1>navbar item</h1>
+        </div>
+        <div className="navbar-item">
+          <h1>navbar item</h1>
+        </div>
+        <div className="navbar-item">
+          <h1>navbar item</h1>
+        </div>
+        <div className="navbar-item">
+          <h1>navbar item</h1>
         </div>
       </div>
     )
