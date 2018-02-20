@@ -1,7 +1,9 @@
 .body-container {
   display: flex;
-  flex-grow: 1;
+  flex-wrap: wrap;
+  width: 70%;
   height: 100%;
   padding-top: 20px;
-  margin: 0 auto;
+  margin: 1 0 auto;
+  max-width: 100%;
 }

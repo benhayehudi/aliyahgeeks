@@ -5,7 +5,7 @@ class Header extends React.Component {
     return (
       <div className="header-container">
         <div id="align-left">
-          <h1>AliyahGeeks</h1>
+          <h1>Rechov Aliyah</h1>
         </div>
         <div id="align-right">
           <div className="btn">Share Your Story</div><br/>
