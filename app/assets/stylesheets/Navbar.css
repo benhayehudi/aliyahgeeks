@@ -18,6 +18,7 @@
 }
 
 #navbar-profile-img img {
+  padding-left: 5px;
   padding-top: 5px;
   max-width: 100%;
 }
