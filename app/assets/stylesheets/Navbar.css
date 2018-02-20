@@ -30,3 +30,8 @@
   justify-content: center;
   align-items: center;
 }
+
+#navbar-bookmark-img img {
+  width: 60%;
+  background-size: cover;
+}
