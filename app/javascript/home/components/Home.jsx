@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../header/components/Header';
 import Navbar from '../../navbar/components/Navbar';
+import Footer from '../../footer/components/Footer';
 import PostSnippetCard from '../../posts/components/containers/PostSnippetCard';
 
 class Home extends React.Component {
@@ -14,6 +15,7 @@ class Home extends React.Component {
           <PostSnippetCard />
           <PostSnippetCard />
         </div>
+        <Footer />
       </React.Fragment>
     );
   }
