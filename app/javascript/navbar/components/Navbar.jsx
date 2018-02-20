@@ -4,8 +4,9 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar-container">
-        <div className="navbar-item">
-          <h1>navbar item</h1>
+        <div className="navbar-item navbar-profile-link">
+          <div id="navbar-profile-img"><img src="/assets/default-author-headshot.png" alt="default headshot" /></div>
+          <div id="navbar-profile-info">Ploni Almoni<br />@plonialmoni</div>
         </div>
         <div className="navbar-item">
           <h1>navbar item</h1>
