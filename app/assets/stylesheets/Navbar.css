@@ -35,3 +35,56 @@
   width: 60%;
   background-size: cover;
 }
+
+.navbar-sponsors {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-items: center;
+  justify-content: center; 
+}
+
+#sponsors-heading, #heart {
+  flex-wrap: wrap;
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+#navbar-sponsor-img img {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+#navbar-sponsor-img {
+  justify-content: center;
+  align-items: center; 
+}
+
+#navbar-sponsor-lead {
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  margin: 15px;
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#links-heading {
+  flex-wrap: wrap;
+  flex: 1;
+  margin-bottom: 30px;
+  align-self: center;
+}
+
+#link-item {
+  flex-wrap: wrap;
+  flex: 1;
+  margin: 5px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
