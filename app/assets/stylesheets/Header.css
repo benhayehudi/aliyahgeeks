@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat:700|Cinzel+Decorative:700');
+
 .header-container {
   display: flex;
   align-items: center;
@@ -7,6 +9,23 @@
   padding-right: 10px;
   flex-basis: 100%;
   background-color: #FCF9F4;
+}
+
+#title-firsthalf {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 48px;
+  color: #0038b8;
+}
+
+#title-secondhalf {
+  font-family: 'Caveat', cursive;
+  font-size: 68px;
+  color: white;
+  text-shadow:
+		-1px -1px 0 #0038b8,
+		1px -1px 0 #0038b8,
+		-1px 1px 0 #0038b8,
+		1px 1px 0 #0038b8;
 }
 
 #align-right, #align-left {
