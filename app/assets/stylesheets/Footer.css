@@ -12,8 +12,33 @@
   min-width: 100%;
 }
 
+#footer-firsthalf {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 18px;
+  color: #0038b8;
+}
+
+#footer-secondhalf {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: white;
+  text-shadow:
+		-1px -1px 0 #0038b8,
+		1px -1px 0 #0038b8,
+		-1px 1px 0 #0038b8,
+		1px 1px 0 #0038b8;
+}
+
+#footer-copyright {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 18px;
+}
+
+
 .footer-content {
   flex: 1;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 18px;
   color: black;
   text-align: center;
   align-content: center;

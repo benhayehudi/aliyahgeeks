@@ -16,7 +16,7 @@ class Navbar extends React.Component {
           <span id="sponsors-heading"><span id="heart">&hearts;</span>Sponsors<span id="heart">&hearts;</span></span>
           <div id="navbar-sponsor-img"><img src="/assets/sponsors-wanted.png" alt="sponsor wanted" /></div>
           <div id="navbar-sponsor-lead">
-            Want to support a new initiative for the English speaking Aliyah community? Looking to reach an Anglo audience interested in all things Israel? Consider becoming a sponsor of Rechov Aliyah today!
+            Looking to reach an Anglo audience interested in all things Israel? Consider becoming a sponsor of Rechov Aliyah today!
           </div>
         </div>
         <div className="navbar-item navbar-links">
