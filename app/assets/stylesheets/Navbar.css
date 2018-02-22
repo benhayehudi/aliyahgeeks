@@ -71,8 +71,8 @@
 }
 
 #heart {
-  color: lightskyblue;
-  text-shadow: 4px 4px 2px #0038b8;
+  color: #0038b8;
+  text-shadow: 4px 4px 2px lightskyblue;
   margin: 20px;
 }
 

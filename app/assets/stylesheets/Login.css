@@ -1,0 +1,23 @@
+.login-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 1 0 auto;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  justify-content:center;
+  align-items:center;
+  background-color: #FFFFFF;
+
+}
