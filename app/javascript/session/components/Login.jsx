@@ -12,9 +12,19 @@ class Login extends React.Component {
 
         <div className="login-container">
           <div className="login-box">
-            <div id="login-header">I'm the header</div>
-            <div id="login-form">I'm the form</div>
-            <div id="login-footer">I'm the create an account link</div>
+            <div id="login-header">Login</div>
+            <div id="login-form">
+              <form method="post" action="user/login">
+                <label for="email">Email</label><input type="email" name="email" size="30" />
+                <br />
+                <label for="password">Password</label><input type="password" name="password" size="30" />
+                <br />
+                <div id="submit-btn"><input type="submit" name="submit" /></div>
+              </form>
+            </div>
+            <div id="login-footer">
+              Don't have an account yet? <a href="/user/new">Sign up today!</a>
+            </div>
           </div>
         </div>
         

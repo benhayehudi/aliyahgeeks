@@ -1,0 +1,84 @@
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #0038b8;
+  min-height: 30vh;
+  margin-bottom: 30px;
+  color: white;
+  width: 100%;
+  flex-basis: 100%;
+  padding: 15px;
+  min-width: 100%;
+  padding-bottom: 50px;
+}
+
+.dashboard-header a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#dashboard-user-pic {
+  max-width: 30%;
+  flex: 3;
+}
+
+#dashboard-user-details {
+  justify-content: center;
+  align-content: center;
+  margin-top: 50px;
+  flex: 1;
+}
+
+#dashboard-user-pic img {
+  max-width: 80%;
+  border-radius: 50%;
+  border-color: #ffffff;
+  border-width: 10px;
+}
+
+#dashboard-user-name {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 68px;
+}
+
+#dashboard-user-twitter, #dashboard-user-email {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 28px;
+  margin: 10px;
+}
+
+#dashboard-user-twitter img {
+  width: 5%;
+  margin-right: 5px;
+}
+
+#dashboard-user-email img {
+  width: 5%;
+  margin-right: 5px;
+}
+
+.dashboard-edit-profile-button {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Georgia;
+  color: #09071E;
+  font-size: 18px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border: dotted #ffffff 1px;
+  text-decoration: none;
+}
+
+#dashboard-edit-profile-link button {
+  margin-bottom: 20px;
+}
+
+.dashboard-edit-profile-button a {
+  font-family: 'Alegreya', serif;
+  font-size: 28px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #09071E;
+}

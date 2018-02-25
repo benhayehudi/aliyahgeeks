@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import SessionApp from './components/SessionApp';
 
 const home = document.querySelector('#container');
-ReactDOM.render( <App /> , home);
+ReactDOM.render( <SessionApp /> , home);

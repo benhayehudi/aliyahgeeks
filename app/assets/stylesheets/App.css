@@ -4,6 +4,10 @@ body {
   width: 100vw;
 }
 
+a {
+  text-decoration: none;
+}
+
 #container {
   display: flex;
   flex-direction: row;
