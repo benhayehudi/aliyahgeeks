@@ -21,6 +21,8 @@
 #dashboard-user-pic {
   max-width: 30%;
   flex: 3;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 #dashboard-user-details {
@@ -33,8 +35,7 @@
 #dashboard-user-pic img {
   max-width: 80%;
   border-radius: 50%;
-  border-color: #ffffff;
-  border-width: 10px;
+  border:5px solid #ffffff;
 }
 
 #dashboard-user-name {
