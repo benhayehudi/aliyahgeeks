@@ -21,11 +21,13 @@
 
 #navbar-profile-img img {
   padding-left: 5px;
+  padding-right: 15px;
   padding-top: 5px;
-  max-width: 100%;
+  max-width: 60%;
 }
 
 #navbar-profile-info {
+  flex-direction: column;
   font-family: 'Anonymous Pro', monospace;
   font-size: 28px;
   display: flex;
