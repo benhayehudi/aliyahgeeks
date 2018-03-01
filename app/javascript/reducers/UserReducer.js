@@ -35,6 +35,18 @@ function UserReducer(state = initialState, action) {
               picture: action.data.image_file_name,
               headshot: action.data.headshot_url
             })
+        case 'ADD_PUBLISHED_POST': 
+          return Object.assign({}, state, {posts: state.posts.concat(action.post)})
+        case 'ADD_DRAFT_POSTS':
+          return Object.assign({}, state, {drafts: state.drafts.concat(action.drafts)})
+        case 'UPDATE_EDITOR_STATE':
+          return Object.assign({}, state, {editorState: action.editorState})
+        case 'SET_CURRENT_DRAFT':
+          return Object.assign({}, state, {currentDraft: action.props})
+        case 'RESET_POSTS':
+          return Object.assign({}, state, {posts: []})
+        case 'RESET_DRAFTS':
+          return Object.assign({}, state, {drafts: []})
         default:
           return state;
     }

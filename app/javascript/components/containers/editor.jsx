@@ -98,7 +98,7 @@ class PostEditor extends Component {
             handleKeyCommand={this.handleKeyCommand}
             keyBindingFn={this.mapKeyToEditorCommand}
             onChange={this.onChange}
-            placeholder="Tell me about it..."
+            placeholder="Start typing..."
             ref="editor"
             spellCheck={true}
             />

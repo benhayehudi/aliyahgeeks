@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 201802225183660) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "author"
     t.text "content"
     t.date "date"
     t.string "tags"
-    t.boolean "publish"
+    t.boolean "publish", default: false
     t.binary "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.json "draft_json"
   end
 
   create_table "users", force: :cascade do |t|

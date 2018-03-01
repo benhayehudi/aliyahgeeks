@@ -5,12 +5,10 @@ import { connect } from 'react-redux';
 import { setCurrentDraft } from '../../actions/UserActions';
 import { draftToMarkdown } from 'markdown-draft-js';
 
-
 class PostActions extends Component {
    saveOrUpdateDraft = () => {
       const rawDraft = convertToRaw(this.props.editorState.getCurrentContent());
       const draft = JSON.stringify({ post: {
-         title: rawDraft.blocks[0].text,
          draft_json: rawDraft
          }
       })
@@ -51,7 +49,8 @@ class PostActions extends Component {
 
 const mapStateToProps = state => {
    return {
-      userData: state.userData,
+      signed_in: state.signed_in,
+      id: state.id,
       editorState: state.editorState,
       currentDraft: state.currentDraft
    }

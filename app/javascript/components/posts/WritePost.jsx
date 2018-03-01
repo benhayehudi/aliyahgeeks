@@ -29,6 +29,16 @@ class WritePost extends React.Component {
               <span id="post-img-upload"><label htmlFor="img-upload">Choose Image </label><input type="file" name="post[image]" /></span>
               </fieldset>
               <br />
+              <fieldset id="publish-choice">
+                <legend>Ready to publish?</legend>
+                <div id="tag-div">
+                  <input type="checkbox" id="post-publish" name="post[publish]" value="Yes" />
+                  <label htmlFor="Yes">Yes</label>
+                  <input type="checkbox" id="post-tags" name="post[publish]" value="No" checked/>
+                  <label htmlFor="modiin">No</label>
+                </div>
+              </fieldset>
+              <br />
               <PostEditor />
               <div id="submit-btn"><input type="submit" /></div>
             </form>
