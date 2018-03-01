@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, :controllers => { :sessions => 'users/sessions'}
   root to: "pages#home"
   
   resources :sessions
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
   get '/users/sign_out', to: 'users#destroy'
 
   resources :posts 
+  post '/posts/new', to: 'posts#new'
 
 end

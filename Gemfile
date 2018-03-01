@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'paperclip'
 gem 'imagemagick-identify'
+gem 'rails_admin'
+
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

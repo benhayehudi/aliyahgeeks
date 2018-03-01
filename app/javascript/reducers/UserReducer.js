@@ -1,4 +1,5 @@
 import { browserHistory } from 'react-router';
+import { EditorState } from 'draft-js';
 
 let initialState = {
   signed_in: false,
@@ -9,7 +10,15 @@ let initialState = {
   twitter: '',
   id: '',
   picture: null,
-  headshot: null
+  headshot: null,
+  posts:[], 
+  drafts:[],
+   currentDraft: {
+      id: null,
+      isSaved: false
+   },
+   editorState: EditorState.createEmpty()
+
 }
 
 function UserReducer(state = initialState, action) {
@@ -27,7 +36,7 @@ function UserReducer(state = initialState, action) {
               headshot: action.data.headshot_url
             })
         default:
-            return state;
+          return state;
     }
 }
 

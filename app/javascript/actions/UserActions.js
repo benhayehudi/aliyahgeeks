@@ -11,3 +11,17 @@ export function loggedIn() {
           .then(data => dispatch({ type: 'LOGGED_IN', data: data.data }))
   })
 }
+
+export const saveEditorState = editorState => {
+  return {
+     type: "UPDATE_EDITOR_STATE",
+     editorState: editorState
+  }
+}
+
+export const setCurrentDraft = props => {
+  return {
+     type: "SET_CURRENT_DRAFT",
+     props
+  }
+}
