@@ -21,11 +21,14 @@ ActiveRecord::Schema.define(version: 201802225183660) do
     t.date "date"
     t.string "tags"
     t.boolean "publish", default: false
-    t.binary "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.json "draft_json"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

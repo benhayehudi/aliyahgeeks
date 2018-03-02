@@ -1,20 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { convertToRaw } from 'draft-js';
 import { connect } from 'react-redux';
-import { setCurrentDraft } from '../../actions/UserActions';
+import { setCurrentDraft, loggedIn } from '../../actions/UserActions';
 import { draftToMarkdown } from 'markdown-draft-js';
+import $ from 'jquery';
 
-class PostActions extends Component {
-   saveOrUpdateDraft = () => {
-      const rawDraft = convertToRaw(this.props.editorState.getCurrentContent());
-      const draft = JSON.stringify({ post: {
-         draft_json: rawDraft
-         }
-      })
-
+class PostActions extends React.Component {
+  componentDidMount() {
+    this.props.loggedIn();
+  }
+  saveOrUpdateDraft = (event) => {
+  event.preventDefault();
+  const rawDraft = convertToRaw(this.props.editorState.getCurrentContent());
+    const draft = JSON.stringify({ id: this.props.id, 
+      post: {
+      title: document.getElementById("post-title-text").value,
+      image: $('#post-image').prop('files')[0],
+      tags: document.getElementById("post-tags-content").value,
+      publish: document.getElementById("post-publish-content").value,
+      user_id: document.getElementById("post-user-id").value,
+      draft_json: rawDraft
+      }
+    })
+      console.log(draft)
       if (this.props.currentDraft.isSaved === true) {
-         fetch(`http://localhost:3001/api/posts/${this.props.currentDraft.id}?token=${this.props.userData.token}`, {
+         fetch(`/posts/${this.props.currentDraft.id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: draft})
@@ -24,14 +35,14 @@ class PostActions extends Component {
             console.log('Success:', response);
          })
       } else {
-         fetch(`http://localhost:3001/api/posts?token=${this.props.userData.token}`, {
+         fetch(`/posts/new`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: draft})
          .then(res => res.json())
          .catch(error => console.error('Error:', error))
          .then(response => {
-            console.log('Success:', response);
+            console.log('Success');
             this.props.setCurrentDraft({id: response.id, isSaved: true});
          })
       }
@@ -55,4 +66,4 @@ const mapStateToProps = state => {
       currentDraft: state.currentDraft
    }
 }
-export default connect(mapStateToProps, { setCurrentDraft })(PostActions)
+export default connect(mapStateToProps, { setCurrentDraft, loggedIn })(PostActions)

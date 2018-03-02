@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pry'
 class Users::SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
 
@@ -11,9 +12,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    session[:uid] = current_user.id
+  end
 
   # DELETE /resource/sign_out
   # def destroy

@@ -21,10 +21,10 @@ class Header extends React.Component {
             this.props.signed_in 
             ? 
 
-            <div class="header-dropdown">
+            <div className="header-dropdown">
               <div id="header-headshot-img"><a href={"/user/edit/" + this.props.id}><img src={this.props.headshot}/></a>
             </div>            
-            <div class="header-dropdown-content">
+            <div className="header-dropdown-content">
               <a href={"/user/dashboard/" +this.props.id}>Your Dashboard</a>
               <a href={"/user/edit/" +this.props.id}>Edit Profile</a>
               <a href="/users/sign_out">Logout</a>

@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   get '/users/sign_out', to: 'users#destroy'
 
   resources :posts 
-  post '/posts/new', to: 'posts#new'
+  post '/posts/new', to: 'posts#create'
 
 end
