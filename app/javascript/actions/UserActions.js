@@ -1,4 +1,8 @@
 import axios from 'axios';
+import { convertToRaw, convertFromRaw, EditorState } from 'draft-js';
+import { markdownToDraft} from 'markdown-draft-js';
+import {stateToHTML} from 'draft-js-export-html';
+
 
 export function loggedIn() {
   return (dispatch => {
@@ -24,4 +28,20 @@ export const setCurrentDraft = props => {
      type: "SET_CURRENT_DRAFT",
      props
   }
+}
+
+export function getPost() {
+  let href = location.href;
+  let postId = href.match(/([^\/]*)\/*$/)[1];
+  return (dispatch => {
+
+      const request = {
+          method: 'get',
+          data: JSON.stringify
+      };
+      axios.get(`/posts/${postId}`)
+          .then(data => dispatch({ type: 'VIEW_POST', data: data.data }))
+          .then(data => convertFromRaw(data.data.post.draft_json))
+          .then(data => dispatch({ type: 'UPDATE_EDITOR_STATE', editorState: EditorState.createWithContent(data) }))
+  })
 }

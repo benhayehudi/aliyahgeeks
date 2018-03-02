@@ -1945,7 +1945,7 @@ draft-js-export-html@0.1.13:
   dependencies:
     draft-js-utils "^0.1.4"
 
-draft-js-export-html@>=0.6.0:
+draft-js-export-html@>=0.6.0, draft-js-export-html@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/draft-js-export-html/-/draft-js-export-html-1.2.0.tgz#1cbe2b78e1fed74fc29c7cdcbfd7540468eca209"
   dependencies:

@@ -10,6 +10,7 @@ import Navbar from './components/containers/Navbar';
 import Dashboard from './components/user/Dashboard';
 import EditProfile from './components/user/EditProfile';
 import WritePost from './components/posts/WritePost';
+import ViewPost from './components/posts/ViewPost';
 import Login from './components/user/Login';
 import Signup from './components/user/Signup';
 // import axios from 'axios';
@@ -28,6 +29,7 @@ const ReactRouter = () => (
       <Route exact path='/user/login' component={Login} />
       <Route exact path='/sessions/new' component={Signup} />
       <Route exact path='/posts/new' component={WritePost} />
+      <Route exact path='/post/view/:id' component={ViewPost} />
     </Switch>
   </Router>
 )

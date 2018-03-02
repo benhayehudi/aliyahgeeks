@@ -7,4 +7,8 @@ class Post < ApplicationRecord
   def post_pic_url
     image.url(:original)
   end
+
+  def author_info
+    @author = User.find_by(id: self.user_id)
+  end
 end

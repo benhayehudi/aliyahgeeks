@@ -15,7 +15,7 @@ class Navbar extends React.Component {
           <div id="navbar-profile-info">{this.props.signed_in && this.props.first_name && this.props.last_name ? this.props.first_name + " " + this.props.last_name : "Ploni Almoni"}<br />
           {
             ( this.props.signed_in && this.props.twitter) ? 
-              <a href={"https://www.twitter.com/" +this.props.twitter}>{"@" + this.props.twitter}</a>
+              <a href={"/user/dashboard/" +this.props.id}>{"@" + this.props.twitter}</a>
             : 
               "@plonialmoni"
           }
@@ -29,7 +29,7 @@ class Navbar extends React.Component {
           <span id="sponsors-heading"><span id="heart">&hearts;</span>Sponsors<span id="heart">&hearts;</span></span>
           <div id="navbar-sponsor-img"><img src="/assets/sponsors-wanted.png" alt="sponsor wanted" /></div>
           <div id="navbar-sponsor-lead">
-            Looking to reach an Anglo audience interested in all things Israel? Consider becoming a sponsor of Rechov Aliyah today!
+            Looking to reach an English speaking audience interested in all things Israel? Consider becoming a sponsor today!
           </div>
         </div>
         <div className="navbar-item navbar-links">

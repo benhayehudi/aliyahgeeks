@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../containers/Navbar';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { Editor, RichUtils, getDefaultKeyBinding } from 'draft-js';
 import { saveEditorState, setCurrentDraft, loggedIn } from '../../actions/UserActions';
 import { BlockStyleControls, InlineStyleControls } from './StyleControls';
@@ -86,6 +87,7 @@ class WritePost extends React.Component {
         };
     return (
       <React.Fragment>
+        {this.props.signed_in ?  
 
         <div className="writepost-container">
             <div id="writepost-form">
@@ -152,6 +154,11 @@ class WritePost extends React.Component {
             </form>
             </div>
         </div>
+        :
+        <div id="login-footer">
+            Don't have an account yet? <a href="/user/new">Sign up today!</a>
+          </div>
+        }
 
       </React.Fragment>
     )

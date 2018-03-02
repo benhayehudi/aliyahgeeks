@@ -11,7 +11,8 @@ let initialState = {
   id: '',
   picture: null,
   headshot: null,
-  posts:[], 
+  posts:[],
+  current_post: [],
   drafts:[],
    currentDraft: {
       id: null,
@@ -47,6 +48,10 @@ function UserReducer(state = initialState, action) {
           return Object.assign({}, state, {posts: []})
         case 'RESET_DRAFTS':
           return Object.assign({}, state, {drafts: []})
+        case 'VIEW_POST':
+          return Object.assign({}, state, {
+            current_post: action.data
+          })
         default:
           return state;
     }
