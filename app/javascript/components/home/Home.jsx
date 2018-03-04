@@ -3,6 +3,7 @@ import Navbar from '../containers/Navbar';
 import PostSnippetCard from '../containers/PostSnippetCard';
 import { loggedIn, getAllPosts } from '../../actions/UserActions';
 import { connect } from 'react-redux';
+import LazyLoad from 'react-lazy-load';
 
 class Home extends React.Component {
   componentDidMount() {

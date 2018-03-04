@@ -6,7 +6,7 @@ before_action :set_post, only: [:show, :update, :destroy]
 before_action :set_user, only: [:create, :update]
 
 def index 
-  @posts = Post.all
+  @posts = Post.all.order(created_at: :desc).limit(5)
   render :json => @posts
 end
 
