@@ -1,16 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class PostSnippetCard extends React.Component {
+  
   render() {
+    let postUrl =
+    this.props.post.title !== undefined && this.props.post.title !== null ?
+      this.props.post.title.replace(/[^\w\s]|_/g, "")
+      .replace(/\s+/g, " ")
+      .replace(/\s+/g, '-') + "-" + this.props.post.id : "Loading..."
     return (
       <div className="post-snippet-container">
-        <div id="post-snippet-title">The Sky Is Blue In Modiin</div>
+        <div id="post-snippet-title"><a href={"/post/view/"+postUrl}>{this.props.post.title}</a></div>
         <div id="post-snippet-author-container">
-          <div id="post-snippet-author-headshot"><img src="/assets/default-author-headshot.png" alt="default headshot" />Ploni Almoni</div>
+          <div id="post-snippet-author-headshot"><img src={this.props.post.user.headshot_url ? this.props.post.user.headshot_url : "/assets/default-author-headshot.png"} alt="author headshot" />{this.props.post.user.full_name}</div>
         </div>
         <div className="post-snippet-footer">
           <div id="post-snippet-tags">
-            <p><span>#aliyah</span> <span>#hebrew</span> <span>#modiin</span></p>
+            <p><span>{"#" + this.props.post.tags}</span></p>
           </div>
           <div id="post-snippet-links">
             <span id="post-snippet-heart">&hearts;4</span>
@@ -21,4 +28,5 @@ class PostSnippetCard extends React.Component {
     )
   }
 }
-export default PostSnippetCard
+
+export default connect(null, null)(PostSnippetCard);

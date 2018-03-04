@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn, getPost } from '../../actions/UserActions';
-//import { draftToMarkdown } from 'markdown-draft-js';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 
@@ -11,25 +10,19 @@ class ViewPost extends React.Component {
     this.props.getPost();
   }
   render() {
-    // let rawDraftContentState = 
-    //   this.props.post !== undefined && this.props.post.length !== 0 ?
-    //   JSON.stringify( convertToRaw(this.props.post.post.draft_json) ) : null
-
-    //   console.log(rawDraftContentState)
-    // let rawDraft = 
-    //   this.props.post !== undefined && this.props.post.length !== 0 ?
-    //   convertToRaw( JSON.parse( rawDraftContentState) ) : null
-
+    // Setup the rendering of the post body from editorState
     let html = 
       this.props.post !== undefined && this.props.post.length !== 0 ?
         stateToHTML(this.props.editorState.getCurrentContent()) : null
-    let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    let date = this.props.post !== undefined && this.props.post.length !== 0 ?
-      new Date(this.props.post.post.created_at) : null
-
+    // set function to render the html without escaping the tags
     function createMarkup() {
       return {__html: html};
     }
+
+    let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    let date = this.props.post !== undefined && this.props.post.length !== 0 ?
+      new Date(this.props.post.post.created_at) : null
+    
     return (
       <React.Fragment>
         {
@@ -41,8 +34,11 @@ class ViewPost extends React.Component {
             </div>
             <div id="author-info">
               <h2>
-                <img src={"/assets/headshots/" + this.props.post.author.image_file_name} />{this.props.post.author.first_name + ' ' + this.props.post.author.last_name}
-                <a href={"https://www.twitter.com/" + this.props.post.author.twitter}><img src="/assets/icons/twitter-icon.png" /></a>
+                <span id="author-img">
+                  <img src={"/assets/headshots/" + this.props.post.author.image_file_name} />
+                </span>
+                {this.props.post.author.first_name + ' ' + this.props.post.author.last_name}
+                <span id="dashboard-user-twitter"><a href={"https://www.twitter.com/" + this.props.post.author.twitter}><img src="/assets/icons/twitter-icon.png" /></a></span>
                 {date.toLocaleDateString("en-US",dateOptions)}
               </h2>
             </div>

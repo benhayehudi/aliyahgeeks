@@ -11,4 +11,13 @@ class Post < ApplicationRecord
   def author_info
     @author = User.find_by(id: self.user_id)
   end
+
+  def as_json(options={})
+    super(:include => {:user => {
+      :only => 
+        [:twtter], :methods => [:headshot_url, :full_name]
+      }
+    }
+  )
+  end
 end

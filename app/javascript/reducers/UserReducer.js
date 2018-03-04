@@ -52,6 +52,10 @@ function UserReducer(state = initialState, action) {
           return Object.assign({}, state, {
             current_post: action.data
           })
+        case 'GET_ALL_POSTS':
+          return Object.assign({}, state, {
+            posts: action.data
+          })
         default:
           return state;
     }

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :posts 
   post '/posts/new', to: 'posts#create'
-  get '/posts/id:', to: 'posts#show'
+  get '/posts/:id', to: 'posts#show'
   get '/post/view/:id', to: 'posts#view'
 
 end

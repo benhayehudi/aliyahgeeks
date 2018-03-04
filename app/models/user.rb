@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   has_many :posts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,5 +10,9 @@ class User < ApplicationRecord
 
   def headshot_url
     image.url(:original)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

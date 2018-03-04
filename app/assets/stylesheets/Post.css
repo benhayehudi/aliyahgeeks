@@ -16,3 +16,20 @@
   box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
   background-color: #ffffff;
 }
+
+#author-info {
+  color: #6677A6;
+
+}
+
+#author-img img {
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-top: 5px;
+  max-width: 5%;
+}
+
+#tag-info {
+  align-self: center;
+  padding-right: 50%;
+}

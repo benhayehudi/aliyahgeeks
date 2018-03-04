@@ -32,7 +32,7 @@ export const setCurrentDraft = props => {
 
 export function getPost() {
   let href = location.href;
-  let postId = href.match(/([^\/]*)\/*$/)[1];
+  let postId = href.split('-').pop().trim();
   return (dispatch => {
 
       const request = {
@@ -43,5 +43,17 @@ export function getPost() {
           .then(data => dispatch({ type: 'VIEW_POST', data: data.data }))
           .then(data => convertFromRaw(data.data.post.draft_json))
           .then(data => dispatch({ type: 'UPDATE_EDITOR_STATE', editorState: EditorState.createWithContent(data) }))
+  })
+}
+
+export function getAllPosts() {
+  return (dispatch => {
+    
+    const request = {
+      method: 'get',
+      data: JSON.stringify
+    };
+    axios.get(`/posts`)
+      .then(data => dispatch({ type: 'GET_ALL_POSTS', data: data.data}))
   })
 }
