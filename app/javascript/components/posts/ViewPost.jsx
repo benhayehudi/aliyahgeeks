@@ -38,15 +38,28 @@ class ViewPost extends React.Component {
                   <img src={"/assets/headshots/" + this.props.post.author.image_file_name} />
                 </span>
                 {this.props.post.author.first_name + ' ' + this.props.post.author.last_name}
-                <span id="dashboard-user-twitter"><a href={"https://www.twitter.com/" + this.props.post.author.twitter}><img src="/assets/icons/twitter-icon.png" /></a></span>
+                <span id="post-author-twitter"><a href={"https://www.twitter.com/" + this.props.post.author.twitter}><img src="/assets/icons/twitter-icon.png" /></a></span>
                 {date.toLocaleDateString("en-US",dateOptions)}
               </h2>
             </div>
             <div id="tag-info">
-            {this.props.post.post.tags}
+            {"#"+this.props.post.post.tags}
             </div>
             <div id="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
-            
+            <div id="post-actions">
+              <button id="button-heart">
+                <img src="/assets/icons/heart-icon.jpeg" />
+                <span id="like-number">5</span>
+              </button> 
+              <button id="button-star">
+                <img src="/assets/icons/star-icon.png" />
+                <span id="like-number">5</span>
+              </button>
+              <button id="button-hands">
+                <img src="/assets/icons/hands-icon.png" />
+                <span id="like-number">5</span>
+              </button>
+            </div>
         </div>
         :
         "Loading..."

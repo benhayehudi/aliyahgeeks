@@ -12,7 +12,7 @@ class PostSnippetCard extends React.Component {
       .replace(/\s+/g, '-') + "-" + this.props.post.id : "Loading..."
     return (
         <div className="post-snippet-container">
-        <div id="post-snippet-title"><a href={"/"+postUrl}>{this.props.post.title}</a></div>
+        <div id="post-snippet-title"><a href={"/post/view/"+postUrl}>{this.props.post.title}</a></div>
         <div id="post-snippet-author-container">
           <div id="post-snippet-author-headshot">
             <img src={this.props.post.user.headshot_url ? this.props.post.user.headshot_url : "/assets/default-author-headshot.png"} alt="author headshot" />
