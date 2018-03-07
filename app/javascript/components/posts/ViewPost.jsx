@@ -12,7 +12,8 @@ class ViewPost extends React.Component {
     this.props.getPost();
   }
 
-  addHeartCount() {
+  addHeartCount = () => {
+    console.log(event.type)
     let postId = this.props.post.post.id 
     let counter = this.props.hearts + 1
     this.props.addHeart(counter, postId);

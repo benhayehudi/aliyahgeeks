@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def view 
-    user_info = { :user => @user, :posts => @user.user_posts }
+    user_info = { :user => @user.user_dashboard_info, :posts => @user.user_posts }
     render :json => user_info.to_json
   end
  

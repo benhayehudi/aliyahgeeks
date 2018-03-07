@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
+  has_many :bookmarks 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,5 +19,9 @@ class User < ApplicationRecord
 
   def user_posts 
     @posts = Post.all.where(user_id: self.id)
+  end
+
+  def user_dashboard_info 
+    User.select("id", "first_name", "last_name", "twtter", "image_file_name", "admin").where(id: self.id)
   end
 end
