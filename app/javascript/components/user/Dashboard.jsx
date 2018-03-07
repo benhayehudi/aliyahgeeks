@@ -3,13 +3,22 @@ import Navbar from '../containers/Navbar';
 import { loggedIn } from '../../actions/UserActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { getUserPosts } from '../../actions/BlogPostActions';
+import PostSnippetCard from '../containers/PostSnippetCard';
+
 
 class Dashboard extends React.Component {
   componentDidMount(){
-    this.props.loggedIn()
+    this.props.loggedIn();
+    this.props.getUserPosts();
   }
   render() {
-    console.log("dashboard!")
+    let loadedPosts = 
+    this.props.posts !== undefined && this.props.posts.length !== 0 ?
+      this.props.posts.posts : null
+    const renderedPosts = 
+      this.props.posts !== undefined && this.props.posts.length !== 0 ?
+      loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : "Loading..."
     return (
       <React.Fragment>
         <Navbar />
@@ -30,20 +39,8 @@ class Dashboard extends React.Component {
          </div>
         
 
-          <div className="post-snippet-container">
-            <div id="post-snippet-title">The Sky Is Blue In Modiin</div>
-            <div id="post-snippet-author-container">
-              <div id="post-snippet-author-headshot"><img src="/assets/default-author-headshot.png" alt="default headshot" />Ploni Almoni</div>
-            </div>
-            <div className="post-snippet-footer">
-              <div id="post-snippet-tags">
-                <p><span>#aliyah</span> <span>#hebrew</span> <span>#modiin</span></p>
-              </div>
-              <div id="post-snippet-links">
-                <span id="post-snippet-heart">&hearts;4</span>
-                <span id="post-snippet-comment">✍ 12</span>
-              </div>
-            </div>
+          <div className="dashboard-post-container">
+            {renderedPosts}
           </div>
         </div>
         
@@ -63,8 +60,9 @@ const mapStateToProps = (state) => {
     twitter: state.users.twitter,
     id: state.users.id,
     picture: state.users.picture,
-    headshot: state.users.headshot
+    headshot: state.users.headshot,
+    posts: state.posts.posts
   })
 }
 
-export default connect(mapStateToProps, { loggedIn })(Dashboard);
+export default connect(mapStateToProps, { loggedIn, getUserPosts })(Dashboard);

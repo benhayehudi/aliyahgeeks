@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def user_posts 
+    @posts = Post.all.where(user_id: self.id)
+  end
 end

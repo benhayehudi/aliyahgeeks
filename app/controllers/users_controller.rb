@@ -4,18 +4,18 @@ class UsersController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :view]
  
   def index
     @users = User.all
   end
  
   def show
-    # if current_user
-    #   dashboard_path(current_user)
-    # else 
-    #   root_path
-    # end
+  end
+
+  def view 
+    user_info = { :user => @user, :posts => @user.user_posts }
+    render :json => user_info.to_json
   end
  
   def edit

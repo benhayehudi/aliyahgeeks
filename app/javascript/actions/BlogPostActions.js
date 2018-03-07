@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { convertToRaw, convertFromRaw, EditorState } from 'draft-js';
+import { markdownToDraft} from 'markdown-draft-js';
+import {stateToHTML} from 'draft-js-export-html';
 
 export const saveEditorState = editorState => {
   return {
@@ -39,6 +42,20 @@ export function getAllPosts() {
     };
     axios.get(`/posts`)
       .then(data => dispatch({ type: 'GET_ALL_POSTS', data: data.data}))
+  })
+}
+
+export function getUserPosts() {
+  let href = location.href;
+  let userId = href.split('/').pop().trim();
+  return (dispatch => {
+
+    const request = {
+      method: 'get',
+      data: JSON.stringify
+    };
+    axios.get(`/user/posts/${userId}`)
+      .then(data => dispatch({ type: 'GET_ALL_POSTS', data: data.data }))
   })
 }
 

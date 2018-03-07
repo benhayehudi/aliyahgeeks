@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/user/edit/:id', to: 'users#update'
   get '/users/check_for_user', to: 'users#user_check'
   get '/users/sign_out', to: 'users#destroy'
+  get '/user/posts/:id', to: 'users#view', as: :user_posts_api
 
   resources :posts 
   post '/posts/new', to: 'posts#create'

@@ -18,13 +18,18 @@ class PostSnippetCard extends React.Component {
       // this.props.post.postlike.map(reaction => <LikeCard reactions={reaction} key={reaction.hands}/>) : 0
     return (
         <div className="post-snippet-container">
-        <div id="post-snippet-title"><a href={"/post/view/"+postUrl}>{this.props.post.title}</a></div>
+        <div id="post-snippet-title">
+          <a href={"/post/view/"+postUrl}>{this.props.post.title}</a>
+          { this.props.post.user_id == this.props.id ? 
+          <button className="dashboard-edit-post-button"><a href={"/posts/" + this.props.post.id + "/edit"}>Edit Post</a></button> : null
+          }
+        </div>
         <div id="post-snippet-author-container">
           <div id="post-snippet-author-headshot">
             <img src={this.props.post.user.headshot_url ? this.props.post.user.headshot_url : "/assets/default-author-headshot.png"} alt="author headshot" />
           </div>
           <div id="post-snippet-author-name">
-            {this.props.post.user.full_name}
+            <h4>{this.props.post.user.full_name}</h4>
           </div>
         </div>
         <div className="post-snippet-footer">
@@ -40,5 +45,18 @@ class PostSnippetCard extends React.Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return ({
+    signed_in: state.users.signed_in,
+    email: state.users.email,
+    first_name: state.users.first_name,
+    last_name: state.users.last_name,
+    user_location: state.users.user_location,
+    twitter: state.users.twitter,
+    id: state.users.id,
+    picture: state.users.picture,
+    headshot: state.users.headshot
+  })
+}
 
-export default connect(null, null)(PostSnippetCard);
+export default connect(mapStateToProps, null)(PostSnippetCard);

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../../actions/UserActions';
-import { getPost } from '../../actions/BlogPostActions';
-import { addHeartCount, addStarCount, addHandCount } from '../../functions/PostLikeActions';
+import { getPost, addHeart, addStar, addHand } from '../../actions/BlogPostActions';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import $ from 'jquery';
@@ -11,6 +10,24 @@ class ViewPost extends React.Component {
   componentDidMount(){
     this.props.loggedIn();
     this.props.getPost();
+  }
+
+  addHeartCount() {
+    let postId = this.props.post.post.id 
+    let counter = this.props.hearts + 1
+    this.props.addHeart(counter, postId);
+  }
+  
+  addStarCount() {
+    let postId = this.props.post.post.id
+    let counter = this.props.stars + 1
+    this.props.addStar(counter, postId);
+  }
+  
+  addHandCount() {
+    let postId = this.props.post.post.id
+    let counter = this.props.hands + 1
+    this.props.addHand(counter, postId);
   }
 
   render() {
@@ -55,15 +72,15 @@ class ViewPost extends React.Component {
             </div>
             <div id="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
             <div id="post-actions">
-              <button id="button-heart" data-type="hearts" onClick={() => this.props.addHeartCount()}>
+              <button id="button-heart" data-type="hearts" onClick={() => this.addHeartCount()}>
                 <img src="/assets/icons/heart-icon.jpeg" />
                 <span id="like-number">{this.props.hearts}</span>
               </button> 
-              <button id="button-star" data-type="stars" onClick={() => this.props.addStarCount()}>
+              <button id="button-star" data-type="stars" onClick={() => this.addStarCount()}>
                 <img src="/assets/icons/star-icon.png" />
                 <span id="like-number">{this.props.stars}</span>
               </button>
-              <button id="button-hands" data-type="hands" onClick={() => this.props.addHandCount()}>
+              <button id="button-hands" data-type="hands" onClick={() => this.addHandCount()}>
                 <img src="/assets/icons/hands-icon.png" />
                 <span id="like-number">{this.props.hands}</span>
               </button>
@@ -94,4 +111,4 @@ const mapStateToProps = state => {
     editorState: state.posts.editorState
   }
 }
-export default connect(mapStateToProps, { loggedIn, getPost, addHeartCount, addStarCount, addHandCount })(ViewPost)
+export default connect(mapStateToProps, { loggedIn, getPost, addHeart, addStar, addHand })(ViewPost)

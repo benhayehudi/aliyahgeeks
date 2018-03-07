@@ -6,19 +6,24 @@ before_action :set_post, only: [:show, :update, :destroy]
 before_action :set_user, only: [:create, :update]
 
 def index 
-  @posts = Post.all.order(created_at: :desc).limit(5)
-  render :json => @posts
+  # if params[:id]
+  #   @posts = Post.find_by(user_id: params[:id]).order(created_at: :desc)
+  #   render :json => @posts
+  # else
+    @posts = Post.all.order(created_at: :desc).limit(5)
+    render :json => @posts
+  # end
 end
 
 def new
 end
 
 def show 
-  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url, :likes => @post.like_info }
-  render :json => post_info.to_json
 end
 
 def view
+  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url, :likes => @post.like_info }
+  render :json => post_info.to_json
 end
 
 def create
@@ -46,6 +51,11 @@ def update
   end
 end
 
+# def user_posts 
+#   @posts = Post.find_by(user_id: params[:id]).order(created_at: :desc)
+#   render :json => @posts
+# end
+
 def reaction
   postlikes = Postlike.find_or_create_by(post_id: params[:postId])
   postlikes.update(postlikes_params)
@@ -68,7 +78,7 @@ def post_params
 end
 
 def postlikes_params 
-  params.permit(:post_id, :likes, :hearts, :hands)
+  params.permit(:post_id, :likes, :hearts, :hands, :post)
 end
 
 end
