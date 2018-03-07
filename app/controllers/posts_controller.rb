@@ -19,11 +19,11 @@ def new
 end
 
 def show 
+  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url, :likes => @post.like_info }
+  render :json => post_info.to_json
 end
 
 def view
-  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url, :likes => @post.like_info }
-  render :json => post_info.to_json
 end
 
 def create
