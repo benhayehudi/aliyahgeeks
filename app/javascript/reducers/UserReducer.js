@@ -27,7 +27,7 @@ function UserReducer(state = initialState, action) {
               id: action.data.id,
               picture: action.data.image_file_name,
               headshot: action.data.headshot_url,
-              bookmarks: action.data.bookmarks,
+              bookmarks: action.data.user_bookmarks,
               bookmark_count: action.data.bookmark_count
             })
         case 'ADD_BOOKMARK':

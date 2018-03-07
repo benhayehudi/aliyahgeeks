@@ -42,7 +42,6 @@
 }
 
 #navbar-bookmark-title {
-  display: flex;
   width: 40%;
   flex: 0 0 60%;
   margin-right: 20px;
@@ -52,6 +51,12 @@
   font-family: 'Cinzel Decorative', cursive;
   font-size: 28px;
   color: #0038b8;
+}
+
+#bookmark-count {
+  font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", "TeXGyreHerosCnBold", "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  font-stretch: condensed;
+  font-size: 1.1em;
 }
 
 .navbar-sponsors {

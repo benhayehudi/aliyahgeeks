@@ -19,6 +19,11 @@ class Dashboard extends React.Component {
     const renderedPosts = 
       this.props.posts !== undefined && this.props.posts.length !== 0 ?
       loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : "Loading..."
+
+      const renderedBookmarks =
+        this.props.bookmarks !== undefined && this.props.bookmarks.length !== 0 ?
+          this.props.bookmarks.map(post => post.map(postDetails => 
+            <PostSnippetCard post={postDetails} key={post.id}/>)) : "No bookmarks"
     return (
       <React.Fragment>
         <Navbar />
@@ -38,10 +43,18 @@ class Dashboard extends React.Component {
             </div>
          </div>
         
+         <div id="dashboard-user-name">My Posts</div>
 
           <div className="dashboard-post-container">
             {renderedPosts}
           </div>
+
+        <div id="dashboard-user-name">My Bookmarks</div>
+
+        <div className="dashboard-post-container">
+            {renderedBookmarks}
+        </div>
+
         </div>
         
       </React.Fragment>
@@ -61,7 +74,8 @@ const mapStateToProps = (state) => {
     id: state.users.id,
     picture: state.users.picture,
     headshot: state.users.headshot,
-    posts: state.posts.posts
+    posts: state.posts.posts,
+    bookmarks: state.users.bookmarks
   })
 }
 

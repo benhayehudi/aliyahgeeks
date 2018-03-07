@@ -22,7 +22,12 @@ class User < ApplicationRecord
   end
 
   def user_bookmarks
-    @bookmarks = Bookmark.all.where(user_id: self.id)
+    @bookmarkIds = Bookmark.all.where(user_id: self.id)
+    @bookmarks = []
+    @bookmarkIds.each do |bookmarkId|
+      @bookmarks << Post.where(id: bookmarkId['post_id'])
+    end
+    return @bookmarks
   end
 
   def bookmark_count 

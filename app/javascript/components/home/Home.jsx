@@ -37,7 +37,8 @@ const mapStateToProps = (state) => {
     location: state.users.location,
     twitter: state.users.twitter,
     id: state.users.id,
-    posts: state.posts.posts
+    posts: state.posts.posts,
+    bookmarks: state.users.bookmarks
   })
 }
 
