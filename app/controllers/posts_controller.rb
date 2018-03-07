@@ -14,7 +14,7 @@ def new
 end
 
 def show 
-  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url }
+  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url, :likes => @post.like_info }
   render :json => post_info.to_json
 end
 
@@ -46,6 +46,12 @@ def update
   end
 end
 
+def reaction
+  postlikes = Postlike.find_or_create_by(post_id: params[:postId])
+  postlikes.update(postlikes_params)
+  render json: postlikes
+end
+
 
 private
 
@@ -59,6 +65,10 @@ end
 
 def post_params
   params.require('post').permit(:title, :tags, :image, :publish, :user_id, draft_json: {})
+end
+
+def postlikes_params 
+  params.permit(:post_id, :likes, :hearts, :hands)
 end
 
 end

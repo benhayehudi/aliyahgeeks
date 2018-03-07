@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LazyLoad from 'react-lazy-load';
+import LikeCard from './LikeCard';
 
 class PostSnippetCard extends React.Component {
   
@@ -10,6 +11,11 @@ class PostSnippetCard extends React.Component {
       this.props.post.title.replace(/[^\w\s]|_/g, "")
       .replace(/\s+/g, " ")
       .replace(/\s+/g, '-') + "-" + this.props.post.id : "Loading..."
+
+    let mappedHearts = 
+      this.props.post !== undefined && this.props.post !== null ?
+      this.props.post.postlike.hearts : "0"
+      // this.props.post.postlike.map(reaction => <LikeCard reactions={reaction} key={reaction.hands}/>) : 0
     return (
         <div className="post-snippet-container">
         <div id="post-snippet-title"><a href={"/post/view/"+postUrl}>{this.props.post.title}</a></div>
@@ -26,7 +32,8 @@ class PostSnippetCard extends React.Component {
             <p><span>{"#" + this.props.post.tags}</span></p>
           </div>
           <div id="post-snippet-links">
-            <div id="post-snippet-heart"><img src="/assets/icons/heart-icon.jpeg"/><div id="post-snippet-heart-count">20</div></div>
+            <div id="post-snippet-heart"><img src="/assets/icons/heart-icon.jpeg"/>
+            <div id="post-snippet-heart-count">{mappedHearts}</div></div>
           </div>
         </div>
       </div>

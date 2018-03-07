@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from '../containers/Navbar';
 import PostSnippetCard from '../containers/PostSnippetCard';
-import { loggedIn, getAllPosts } from '../../actions/UserActions';
+import { loggedIn } from '../../actions/UserActions';
+import { getAllPosts } from '../../actions/BlogPostActions';
 import { connect } from 'react-redux';
 import LazyLoad from 'react-lazy-load';
 
@@ -29,14 +30,14 @@ class Home extends React.Component {
 }
 const mapStateToProps = (state) => {
   return ({
-    signed_in: state.signed_in,
-    email: state.email,
-    first_name: state.first_name,
-    last_name: state.last_name,
-    location: state.location,
-    twitter: state.twitter,
-    id: state.id,
-    posts: state.posts
+    signed_in: state.users.signed_in,
+    email: state.users.email,
+    first_name: state.users.first_name,
+    last_name: state.users.last_name,
+    location: state.users.location,
+    twitter: state.users.twitter,
+    id: state.users.id,
+    posts: state.posts.posts
   })
 }
 

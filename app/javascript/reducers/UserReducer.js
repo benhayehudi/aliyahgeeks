@@ -1,5 +1,4 @@
 import { browserHistory } from 'react-router';
-import { EditorState } from 'draft-js';
 
 let initialState = {
   signed_in: false,
@@ -11,15 +10,6 @@ let initialState = {
   id: '',
   picture: null,
   headshot: null,
-  posts:[],
-  current_post: [],
-  drafts:[],
-   currentDraft: {
-      id: null,
-      isSaved: false
-   },
-   editorState: EditorState.createEmpty()
-
 }
 
 function UserReducer(state = initialState, action) {
@@ -36,26 +26,6 @@ function UserReducer(state = initialState, action) {
               picture: action.data.image_file_name,
               headshot: action.data.headshot_url
             })
-        case 'ADD_PUBLISHED_POST': 
-          return Object.assign({}, state, {posts: state.posts.concat(action.post)})
-        case 'ADD_DRAFT_POSTS':
-          return Object.assign({}, state, {drafts: state.drafts.concat(action.drafts)})
-        case 'UPDATE_EDITOR_STATE':
-          return Object.assign({}, state, {editorState: action.editorState})
-        case 'SET_CURRENT_DRAFT':
-          return Object.assign({}, state, {currentDraft: action.props})
-        case 'RESET_POSTS':
-          return Object.assign({}, state, {posts: []})
-        case 'RESET_DRAFTS':
-          return Object.assign({}, state, {drafts: []})
-        case 'VIEW_POST':
-          return Object.assign({}, state, {
-            current_post: action.data
-          })
-        case 'GET_ALL_POSTS':
-          return Object.assign({}, state, {
-            posts: action.data
-          })
         default:
           return state;
     }

@@ -3,7 +3,8 @@ import Navbar from '../containers/Navbar';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { Editor, RichUtils, getDefaultKeyBinding } from 'draft-js';
-import { saveEditorState, setCurrentDraft, loggedIn } from '../../actions/UserActions';
+import { saveEditorState, setCurrentDraft } from '../../actions/BlogPostActions';
+import { loggedIn } from '../../actions/UserActions';
 import { BlockStyleControls, InlineStyleControls } from './StyleControls';
 import PostActions from './PostActions';
 
@@ -168,17 +169,17 @@ class WritePost extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    signed_in: state.signed_in,
-    email: state.email,
-    first_name: state.first_name,
-    last_name: state.last_name,
-    user_location: state.user_location,
-    twitter: state.twitter,
-    id: state.id,
-    picture: state.picture,
-    headshot: state.headshot,
-    editorState: state.editorState,
-    currentDraft: state.currentDraft
+    signed_in: state.users.signed_in,
+    email: state.users.email,
+    first_name: state.users.first_name,
+    last_name: state.users.last_name,
+    user_location: state.users.user_location,
+    twitter: state.users.twitter,
+    id: state.users.id,
+    picture: state.users.picture,
+    headshot: state.users.headshot,
+    editorState: state.posts.editorState,
+    currentDraft: state.posts.currentDraft
   }
 }
 export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn })(WritePost)

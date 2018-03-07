@@ -99,7 +99,10 @@
 }
 
 #post-snippet-heart img {
-  width: 10%;
+  /* width: 10%; */
+  height: 20px;
+  min-width: 26px;
+  vertical-align: -5px;
 }
 
 #post-snippet-heart-count {
@@ -107,5 +110,14 @@
   align-self: flex-end;
   padding-left: 5px; 
   justify-content: flex-end;
+}
+
+#like-count {
+  font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", "TeXGyreHerosCnBold", "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  font-size: 15px;
+  color: #666666;
+  text-align: left;
+  min-width: 28px;
+  font-weight: 400;
 }
 

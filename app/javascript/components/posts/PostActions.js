@@ -2,7 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import { convertToRaw } from 'draft-js';
 import { connect } from 'react-redux';
-import { setCurrentDraft, loggedIn } from '../../actions/UserActions';
+import { setCurrentDraft } from '../../actions/BlogPostActions';
+import { loggedIn } from '../../actions/UserActions';
 import { draftToMarkdown } from 'markdown-draft-js';
 import $ from 'jquery';
 
@@ -60,10 +61,10 @@ class PostActions extends React.Component {
 
 const mapStateToProps = state => {
    return {
-      signed_in: state.signed_in,
-      id: state.id,
-      editorState: state.editorState,
-      currentDraft: state.currentDraft
+      signed_in: state.users.signed_in,
+      id: state.users.id,
+      editorState: state.posts.editorState,
+      currentDraft: state.posts.currentDraft
    }
 }
 export default connect(mapStateToProps, { setCurrentDraft, loggedIn })(PostActions)

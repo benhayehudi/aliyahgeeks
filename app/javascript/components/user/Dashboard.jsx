@@ -55,15 +55,15 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => {
   return ({
-    signed_in: state.signed_in,
-    email: state.email,
-    first_name: state.first_name,
-    last_name: state.last_name,
-    user_location: state.user_location,
-    twitter: state.twitter,
-    id: state.id,
-    picture: state.picture,
-    headshot: state.headshot
+    signed_in: state.users.signed_in,
+    email: state.users.email,
+    first_name: state.users.first_name,
+    last_name: state.users.last_name,
+    user_location: state.users.user_location,
+    twitter: state.users.twitter,
+    id: state.users.id,
+    picture: state.users.picture,
+    headshot: state.users.headshot
   })
 }
 

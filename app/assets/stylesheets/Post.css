@@ -37,8 +37,14 @@
   padding-left: 5px;
   padding-right: 15px;
   padding-top: 5px;
-  width: 3%;
+  width: 2%;
   border-radius: 50%;
+
+  opacity: 0.5;
+  /* width: 18px; */
+  height: 18px;
+  vertical-align: -4px;
+  /* margin: 0px 1px; */
 }
 
 #tag-info {
@@ -47,16 +53,31 @@
   font-size: 18px;
   font-weight: bold;
   padding: 2px 5px 3px;
+  margin-bottom: 10px;
   border-radius: 2px;
   background: #d6d9e0;
   color: #606570;
 }
 
 
-#post-title {
+#post-title h1 {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 500;
   min-height: 20px;
+  color: #000000;
+}
+
+#post-img img {
+  padding-left: 15%;
+  width: 70%;
+  margin-top: auto;
+  margin: auto;
+  max-width: 1024px;
+  background: transparent no-repeat top center;
+  background-size: cover;
+  z-index: 2;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 #post-body {
