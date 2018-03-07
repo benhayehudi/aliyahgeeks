@@ -1,8 +1,4 @@
 import axios from 'axios';
-import { convertToRaw, convertFromRaw, EditorState } from 'draft-js';
-import { markdownToDraft} from 'markdown-draft-js';
-import {stateToHTML} from 'draft-js-export-html';
-
 
 export function loggedIn() {
   return (dispatch => {

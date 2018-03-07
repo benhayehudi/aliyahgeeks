@@ -10,6 +10,8 @@ let initialState = {
   id: '',
   picture: null,
   headshot: null,
+  bookmarks: [],
+  bookmark_count: ''
 }
 
 function UserReducer(state = initialState, action) {
@@ -24,8 +26,14 @@ function UserReducer(state = initialState, action) {
               twitter: action.data.twtter,
               id: action.data.id,
               picture: action.data.image_file_name,
-              headshot: action.data.headshot_url
+              headshot: action.data.headshot_url,
+              bookmarks: action.data.bookmarks,
+              bookmark_count: action.data.bookmark_count
             })
+        case 'ADD_BOOKMARK':
+          return Object.assign({}, state, {
+          bookmarks: action.data
+        })
         default:
           return state;
     }

@@ -14,7 +14,9 @@ class UsersController < ApplicationController
   end
 
   def view 
-    user_info = { :user => @user.user_dashboard_info, :posts => @user.user_posts }
+    user_info = { 
+      :user => @user.user_dashboard_info, :posts => @user.user_posts, :bookmarks => @user.user_bookmarks, :bookmark_count => @user.bookmark_count
+    }
     render :json => user_info.to_json
   end
  
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
 
   def user_check
     if current_user
-      render :json => current_user.to_json(:only => [:id, :email, :first_name, :last_name, :twtter, :location], :methods => [:headshot_url])
+      render :json => current_user.to_json(:only => [:id, :email, :first_name, :last_name, :twtter, :location], :methods => [:headshot_url, :user_bookmarks, :bookmark_count])
     else
       render json: @errors
     end

@@ -23,7 +23,7 @@ class Navbar extends React.Component {
         </div>
         <div className="navbar-item navbar-bookmark">
           <div id="navbar-bookmark-img"><img src="/assets/icons/bookmark-icon.png" alt="bookmark icon" /></div>
-          <div id="navbar-bookmark-title">My Bookmarks</div>
+          <div id="navbar-bookmark-title">My Bookmarks ({this.props.bookmark_count})</div>
         </div>
         <div className="navbar-item navbar-sponsors">
           <span id="sponsors-heading"><span id="heart">&hearts;</span>Sponsors<span id="heart">&hearts;</span></span>
@@ -56,7 +56,8 @@ const mapStateToProps = (state) => {
     twitter: state.users.twitter,
     id: state.users.id,
     picture: state.users.picture,
-    headshot: state.users.headshot
+    headshot: state.users.headshot,
+    bookmark_count: state.users.bookmark_count
   })
 }
 

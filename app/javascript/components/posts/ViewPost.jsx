@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../../actions/UserActions';
-import { getPost, addHeart, addStar, addHand } from '../../actions/BlogPostActions';
+import { getPost, addHeart, addStar, addHand, addBookmark } from '../../actions/BlogPostActions';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import $ from 'jquery';
@@ -29,6 +29,12 @@ class ViewPost extends React.Component {
     let postId = this.props.post.post.id
     let counter = this.props.hands + 1
     this.props.addHand(counter, postId);
+  }
+
+  addUserBookmark() {
+    let postId = this.props.post.post.id
+    let userId = this.props.id
+    this.props.addBookmark(postId, userId);
   }
 
   render() {
@@ -85,6 +91,9 @@ class ViewPost extends React.Component {
                 <img src="/assets/icons/hands-icon.png" />
                 <span id="like-number">{this.props.hands}</span>
               </button>
+              <button id="button-bookmark" onClick={() => this.addUserBookmark()}>
+                <img src="/assets/icons/bookmark-icon-small.png" />
+              </button> 
             </div>
         </div>
         :
@@ -112,4 +121,4 @@ const mapStateToProps = state => {
     editorState: state.posts.editorState
   }
 }
-export default connect(mapStateToProps, { loggedIn, getPost, addHeart, addStar, addHand })(ViewPost)
+export default connect(mapStateToProps, { loggedIn, getPost, addHeart, addStar, addHand, addBookmark })(ViewPost)

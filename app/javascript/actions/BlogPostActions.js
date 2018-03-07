@@ -124,3 +124,25 @@ export function addHand(counter, postId) {
     .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
   }
 )}
+
+export function addBookmark(postId, userId) {
+  return (dispatch => {
+
+  const payload = {
+    post_id: postId,
+    user_id: userId
+  }  
+  const request = {
+    method: 'post',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload)
+  };
+
+  fetch('/bookmarks', request)
+    .then(data => data.json())
+    .then(data => dispatch({ type: 'ADD_BOOKMARK', data: data }))
+  }
+)}

@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get '/posts/:id', to: 'posts#show'
   get '/post/view/:id', to: 'posts#view'
 
+  resources :bookmarks
+
 end
