@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../../actions/UserActions';
-import { getPost, addHeart, addStar, addHand, addBookmark } from '../../actions/BlogPostActions';
+import { getPost, getLikes, addHeart, addStar, addHand, addBookmark } from '../../actions/BlogPostActions';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import $ from 'jquery';
@@ -10,25 +10,28 @@ class ViewPost extends React.Component {
   componentDidMount(){
     this.props.loggedIn();
     this.props.getPost();
+    this.props.getLikes();
   }
 
   addHeartCount = () => {
-    console.log(event.type)
     let postId = this.props.post.post.id 
-    let counter = this.props.hearts + 1
-    this.props.addHeart(counter, postId);
+    let userId = this.props.id
+    let counter = 1
+    this.props.addHeart(counter, postId, userId);
   }
   
   addStarCount() {
     let postId = this.props.post.post.id
-    let counter = this.props.stars + 1
-    this.props.addStar(counter, postId);
+    let userId = this.props.id
+    let counter = 1
+    this.props.addStar(counter, postId, userId);
   }
   
   addHandCount() {
     let postId = this.props.post.post.id
-    let counter = this.props.hands + 1
-    this.props.addHand(counter, postId);
+    let userId = this.props.id
+    let counter = 1
+    this.props.addHand(counter, postId, userId);
   }
 
   addUserBookmark() {
@@ -121,4 +124,4 @@ const mapStateToProps = state => {
     editorState: state.posts.editorState
   }
 }
-export default connect(mapStateToProps, { loggedIn, getPost, addHeart, addStar, addHand, addBookmark })(ViewPost)
+export default connect(mapStateToProps, { loggedIn, getPost, getLikes, addHeart, addStar, addHand, addBookmark })(ViewPost)

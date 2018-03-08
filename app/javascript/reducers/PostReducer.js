@@ -31,10 +31,10 @@ function PostReducer(state = initialState, action) {
           return Object.assign({}, state, {drafts: []})
         case 'VIEW_POST':
           return Object.assign({}, state, {
-            current_post: action.data,
-            likes: action.data.likes.likes,
-            hearts: action.data.likes.hearts,
-            hands: action.data.likes.hands
+            current_post: action.data
+            // likes: action.data.likes.likes,
+            // hearts: action.data.likes.hearts,
+            // hands: action.data.likes.hands
           })
         case 'ADD_LIKE':
           return Object.assign({}, state, {

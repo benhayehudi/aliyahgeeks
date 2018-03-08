@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 201802225183660) do
     t.integer "hands", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "posts", force: :cascade do |t|

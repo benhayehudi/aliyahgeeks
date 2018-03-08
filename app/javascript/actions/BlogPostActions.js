@@ -33,6 +33,21 @@ export function getPost() {
   })
 }
 
+export function getLikes() {
+  let href = location.href;
+  let postId = href.split('-').pop().trim();
+
+  return (dispatch => {
+
+    const request = {
+        method: 'get',
+        data: JSON.stringify
+    };
+    axios.get(`/postlikes/${postId}`)
+      .then(data => console.log(data))
+})
+}
+
 export function getPostEdit() {
   let href = window.location.pathname;
   let splithref = href.split('/');
@@ -77,12 +92,13 @@ export function getUserPosts() {
   })
 }
 
-export function addHeart(counter, postId) {
+export function addHeart(counter, postId, userId) {
   return (dispatch => {
 
   const payload = {
     hearts: counter,
-    postId: postId
+    post_id: postId,
+    user_id: userId
   }  
   const request = {
     method: 'post',
@@ -93,13 +109,13 @@ export function addHeart(counter, postId) {
     body: JSON.stringify(payload)
   };
 
-  fetch('/posts/addreaction/', request)
+  fetch('/postlikes', request)
     .then(data => data.json())
     .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
   }
 )}
 
-export function addStar(counter, postId) {
+export function addStar(counter, postId, userId) {
   return (dispatch => {
 
   const payload = {
@@ -115,13 +131,13 @@ export function addStar(counter, postId) {
     body: JSON.stringify(payload)
   };
 
-  fetch('/posts/addreaction/', request)
+  fetch('/postlikes', request)
     .then(data => data.json())
     .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
   }
 )}
 
-export function addHand(counter, postId) {
+export function addHand(counter, postId, userId) {
   return (dispatch => {
 
   const payload = {
@@ -137,7 +153,7 @@ export function addHand(counter, postId) {
     body: JSON.stringify(payload)
   };
 
-  fetch('/posts/addreaction/', request)
+  fetch('/postlikes', request)
     .then(data => data.json())
     .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
   }

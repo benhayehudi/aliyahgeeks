@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get '/post/view/:id', to: 'posts#view'
 
   resources :bookmarks
+  get '/postlikes/:postId', to: 'postlikes#show'
+  post '/postlikes', to: 'postlikes#create'
 
 end

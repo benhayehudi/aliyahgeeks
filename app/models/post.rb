@@ -2,7 +2,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one :postlike, :dependent => :delete
   has_many :users, :through => :bookmarks
-  after_create :create_postlike
+  has_many :users, :through => :postlikes
+  # after_create :create_postlike
 
   has_attached_file :image, styles: { med: "100x100", large: "200x200" }, :path =>"app/assets/images/post_pictures/:filename", :url => "/assets/post_pictures/:filename"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
@@ -24,8 +25,8 @@ class Post < ApplicationRecord
   )
   end
 
-  def create_postlike 
-    likes = Postlike.new(post_id: self.id)
-    likes.save 
-  end
+  # def create_postlike 
+  #   likes = Postlike.new(post_id: self.id)
+  #   likes.save 
+  # end
 end
