@@ -7,13 +7,11 @@ class PostlikesController < ApplicationController
     postlike_count = []
     postlikes = Postlike.where(post_id: params[:postId])
     postlikes.each do |postlike| 
-      binding.pry
-
-      postlike_count << { 
+      postlike_count << [
         :hearts => postlike.count_hearts, :hands => postlike.count_hands, :stars => postlike.count_stars
-      }
+      ]
     end
-    render :json => postlike_count.to_json
+    render :json => postlike_count
   end
 
   def create

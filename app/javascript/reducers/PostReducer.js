@@ -38,9 +38,9 @@ function PostReducer(state = initialState, action) {
           })
         case 'ADD_LIKE':
           return Object.assign({}, state, {
-            likes: action.data.likes,
-            hearts: action.data.hearts,
-            hands: action.data.hands
+            likes: action.data[0].stars,
+            hearts: action.data[0].hearts,
+            hands: action.data[0].hands
           })
         case 'GET_ALL_POSTS':
           return Object.assign({}, state, {

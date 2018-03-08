@@ -5,14 +5,17 @@ class Postlike < ApplicationRecord
   validates_uniqueness_of :user_id, :scope => :post_id
 
   def count_hearts
-    Postlike.select(:hearts).where(post_id: self.id).count
+    Postlike.where(post_id: self.post_id).sum(:hearts)
+    # Postlike.select(:hearts).where(post_id: self.post_id).sum
   end
 
   def count_stars 
-    Postlike.select(:likes).where(post_id: self.id).count 
+    Postlike.where(post_id: self.post_id).sum(:likes)
+    # Postlike.select(:likes).where(post_id: self.post_id).sum 
   end
 
   def count_hands 
-    Postlike.select(:hands).where(post_id: self.id).count 
+    Postlike.where(post_id: self.post_id).sum(:hands)
+    # Postlike.select(:hands).where(post_id: self.post_id).sum 
   end
 end

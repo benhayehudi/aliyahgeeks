@@ -44,7 +44,7 @@ export function getLikes() {
         data: JSON.stringify
     };
     axios.get(`/postlikes/${postId}`)
-      .then(data => console.log(data))
+      .then(data => dispatch({ type: 'ADD_LIKE', data: data.data[0] }))
 })
 }
 
