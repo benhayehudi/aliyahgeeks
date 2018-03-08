@@ -33,6 +33,24 @@ export function getPost() {
   })
 }
 
+export function getPostEdit() {
+  let href = window.location.pathname;
+  let splithref = href.split('/');
+  let postId = splithref[2]
+  return (dispatch => {
+
+      const request = {
+          method: 'get',
+          data: JSON.stringify
+      };
+      axios.get(`/posts/${postId}`)
+        .then(data => dispatch({ type: 'VIEW_POST', data: data.data }))
+        .then(data => convertFromRaw(data.data.post.draft_json))
+        .then(data => dispatch({ type: 'UPDATE_EDITOR_STATE', editorState: EditorState.createWithContent(data) }))
+  })
+}
+
+
 export function getAllPosts() {
   return (dispatch => {
     

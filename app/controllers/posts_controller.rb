@@ -2,8 +2,8 @@ require 'pry'
 class PostsController < ApplicationController
 
 skip_before_action :verify_authenticity_token
-before_action :set_post, only: [:show, :update, :destroy]
-before_action :set_user, only: [:create, :update]
+before_action :set_post, only: [:show, :update, :destroy, :edit]
+before_action :set_user, only: [:create, :update, :edit]
 
 def index 
   # if params[:id]
@@ -40,15 +40,11 @@ def create
 end
 
 def update
-  if @user && @user.posts.include?(@post)
-    if @post.update(post_params)
-      render json: @post
-    else
-      render json: {message: "Post not saved"}, status: 400
-    end
-  else
-    render json: {status: 'error', message: "User not logged in"}
-  end
+  
+end
+
+def edit 
+
 end
 
 # def user_posts 

@@ -30,6 +30,7 @@ const ReactRouter = () => (
       <Route exact path='/sessions/new' component={Signup} />
       <Route exact path='/posts/new' component={WritePost} />
       <Route exact path='/post/view/:id' component={ViewPost} />
+      <Route exact path='/posts/:id/edit' component={WritePost} />
     </Switch>
   </Router>
 )

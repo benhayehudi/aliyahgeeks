@@ -3,7 +3,7 @@ import Navbar from '../containers/Navbar';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { Editor, RichUtils, getDefaultKeyBinding } from 'draft-js';
-import { saveEditorState, setCurrentDraft } from '../../actions/BlogPostActions';
+import { saveEditorState, setCurrentDraft, getPostEdit } from '../../actions/BlogPostActions';
 import { loggedIn } from '../../actions/UserActions';
 import { BlockStyleControls, InlineStyleControls } from './StyleControls';
 import PostActions from './PostActions';
@@ -67,9 +67,11 @@ class WritePost extends React.Component {
    }
 
    componentDidMount(){
-    this.props.loggedIn()
+    this.props.loggedIn();
+    this.props.getPostEdit();
   }
   render() {
+    console.log(this.props.post)
     const editorState = this.props.editorState;
       let className = 'PostEditor-editor';
       var contentState = this.props.editorState.getCurrentContent();
@@ -94,7 +96,7 @@ class WritePost extends React.Component {
             <div id="writepost-form">
               <form onSubmit={this.saveOrUpdateDraft} encType="multipart/form-data" method="post">
               <input type="hidden" id="post-user-id" name="[post]user_id" value={this.props.id} />
-              <span id="post-title"><label htmlFor="title">Title </label><input type="text" id="post-title-text" name="post[title]" /></span>
+              <span id="post-title"><label htmlFor="title">Title </label><input type="text" id="post-title-text" name="post[title]" value={this.props.post !== undefined && this.props.post.length !== 0 ? this.props.post.post.title : ''}/></span>
               <br />
               <fieldset id="post-tags">
                 <legend>Choose your tags</legend>
@@ -110,13 +112,13 @@ class WritePost extends React.Component {
                 </div>
               </fieldset>
               <fieldset id="post-img-upload">
-              <span id="post-img-upload"><label htmlFor="img-upload">Choose Image </label><input type="file" id="post-image" name="post[image]" /></span>
+              <span id="post-img-upload"><label htmlFor="img-upload">{this.props.post !== undefined && this.props.post.length !== 0 ? "Update Image" : "Choose Image"} </label><input type="file" id="post-image" name="post[image]" /></span>
               </fieldset>
               <br />
               <fieldset id="publish-choice">
                 <legend>Ready to publish?</legend>
                 <div id="tag-div">
-                  <input type="radio" id="post-publish-contrent" name="post[publish]" value="Yes" />
+                  <input type="radio" id="post-publish-content" name="post[publish]" value="Yes" />
                   <label htmlFor="Yes">Yes</label>
                   <input type="radio" id="post-publish-content" name="post[publish]" value="No"/>
                   <label htmlFor="modiin">No</label>
@@ -179,7 +181,8 @@ const mapStateToProps = state => {
     picture: state.users.picture,
     headshot: state.users.headshot,
     editorState: state.posts.editorState,
-    currentDraft: state.posts.currentDraft
+    currentDraft: state.posts.currentDraft,
+    post: state.posts.current_post
   }
 }
-export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn })(WritePost)
+export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn, getPostEdit })(WritePost)
