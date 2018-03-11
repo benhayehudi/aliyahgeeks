@@ -117,9 +117,9 @@ const mapStateToProps = state => {
     picture: state.users.picture,
     headshot: state.users.headshot,
     post: state.posts.current_post,
-    stars: state.posts.current_post.post.postlike.likes,
-    hearts: state.posts.current_post.post.postlike.hearts,
-    hands: state.posts.current_post.post.postlike.hands,
+    // stars: state.posts.current_post.post.postlike.likes,
+    // hearts: state.posts.current_post.post.postlike.hearts,
+    // hands: state.posts.current_post.post.postlike.hands,
     editorState: state.posts.editorState
   }
 }

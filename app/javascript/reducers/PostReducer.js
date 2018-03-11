@@ -39,6 +39,7 @@ function PostReducer(state = initialState, action) {
               {hearts: action.data[0].hearts},
               {likes: action.data[0].likes},
               {hands: action.data[0].hands}
+              console.log(newState)
           return newState; 
           // return Object.assign({}, state, {
           //   likes: action.data.likes,
