@@ -10,9 +10,6 @@ let initialState = {
       isSaved: false
    },
    editorState: EditorState.createEmpty(),
-   likes: '',
-   hearts: '',
-   hands: ''
 }
 
 function PostReducer(state = initialState, action) {
@@ -36,12 +33,25 @@ function PostReducer(state = initialState, action) {
             // hearts: action.data.likes.hearts,
             // hands: action.data.likes.hands
           })
-        case 'ADD_LIKE':
-          return Object.assign({}, state, {
-            likes: action.data[0].stars,
-            hearts: action.data[0].hearts,
-            hands: action.data[0].hands
-          })
+        case 'GET_LIKES':
+          const newState = { ...state};
+          newState.current_post.post.postlike = 
+              {hearts: action.data[0].hearts},
+              {likes: action.data[0].likes},
+              {hands: action.data[0].hands}
+          return newState; 
+          // return Object.assign({}, state, {
+          //   likes: action.data.likes,
+          //   hearts: action.data.hearts,
+          //   hands: action.data.hands
+          // })
+          case 'ADD_LIKE':
+          const newerState = { ...state};
+          newerState.current_post.post.postlike = 
+              {hearts: action.data.hearts},
+              {likes: action.data.likes},
+              {hands: action.data.hands}
+          return newerState; 
         case 'GET_ALL_POSTS':
           return Object.assign({}, state, {
             posts: action.data

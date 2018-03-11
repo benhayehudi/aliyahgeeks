@@ -18,4 +18,19 @@ class Postlike < ApplicationRecord
     Postlike.where(post_id: self.post_id).sum(:hands)
     # Postlike.select(:hands).where(post_id: self.post_id).sum 
   end
+
+  def reaction(type)
+    if self.persisted?
+      if type == "hearts"
+        self.hearts > 0 ? self.hearts = 0 : self.hearts = 1
+        self.save
+      elsif type == "hands"
+        self.hands > 0 ? self.hands = 0 : self.hands = 1
+        self.save
+      elsif type == "likes"
+        elf.likes > 0 ? self.likes = 0 : self.likes = 1
+        self.save
+      end
+    end
+  end
 end

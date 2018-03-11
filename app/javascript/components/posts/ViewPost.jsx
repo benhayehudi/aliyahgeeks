@@ -41,7 +41,6 @@ class ViewPost extends React.Component {
   }
 
   render() {
-   
     // Setup the rendering of the post body from editorState
     let html = 
       this.props.post !== undefined && this.props.post.length !== 0 ?
@@ -84,15 +83,15 @@ class ViewPost extends React.Component {
             <div id="post-actions">
               <button id="button-heart" data-type="hearts" onClick={() => this.addHeartCount()}>
                 <img src="/assets/icons/heart-icon.jpeg" />
-                <span id="like-number">{this.props.hearts}</span>
+                <span id="like-number">{this.props.post.post.postlike.hearts}</span>
               </button> 
               <button id="button-star" data-type="stars" onClick={() => this.addStarCount()}>
                 <img src="/assets/icons/star-icon.png" />
-                <span id="like-number">{this.props.stars}</span>
+                <span id="like-number">{this.props.post.post.postlike.likes}</span>
               </button>
               <button id="button-hands" data-type="hands" onClick={() => this.addHandCount()}>
                 <img src="/assets/icons/hands-icon.png" />
-                <span id="like-number">{this.props.hands}</span>
+                <span id="like-number">{this.props.post.post.postlike.hands}</span>
               </button>
               <button id="button-bookmark" onClick={() => this.addUserBookmark()}>
                 <img src="/assets/icons/bookmark-icon-small.png" />
@@ -118,9 +117,9 @@ const mapStateToProps = state => {
     picture: state.users.picture,
     headshot: state.users.headshot,
     post: state.posts.current_post,
-    stars: state.posts.likes,
-    hearts: state.posts.hearts,
-    hands: state.posts.hands,
+    stars: state.posts.current_post.post.postlike.likes,
+    hearts: state.posts.current_post.post.postlike.hearts,
+    hands: state.posts.current_post.post.postlike.hands,
     editorState: state.posts.editorState
   }
 }

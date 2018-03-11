@@ -15,32 +15,18 @@ class PostlikesController < ApplicationController
   end
 
   def create
-    postlike = Postlike.find_or_initialize_by(postlike_params)
-    if postlike.persisted?
-      if postlike.hearts > 0
-        postlike.hearts = 0
-        postlike.save
-      elsif postlike.hearts = 0
-        postlike.hearts = 1
-        postlike.save 
-      end
-      if postlike.likes > 0
-        postlike.likes = 0
-        postlike.save
-      elsif postlike.likes = 0
-        postlike.likes = 1
-        postlike.save 
-      end
-      if postlike.stars > 0
-        postlike.stars = 0
-        postlike.save
-      elsif postlike.stars = 0
-        postlike.stars = 1
-        postlike.save 
-      end
+    postlike = Postlike.find_or_initialize_by(post_id: params[:post_id], user_id: params[:user_id])
+    if params.has_key?(:hearts) 
+      type = "hearts"
+    elsif params.has_key?(:likes)
+      type = "likes" 
+    elsif params.has_key?(:hands)
+      type = "hands"
     else 
-      postlike.save 
+      render :json => {:error => "No like type specified."}
     end
+    postlike.reaction(type)
+    render :json => postlike
   end 
 
   private 

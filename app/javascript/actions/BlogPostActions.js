@@ -36,7 +36,6 @@ export function getPost() {
 export function getLikes() {
   let href = location.href;
   let postId = href.split('-').pop().trim();
-
   return (dispatch => {
 
     const request = {
@@ -44,8 +43,8 @@ export function getLikes() {
         data: JSON.stringify
     };
     axios.get(`/postlikes/${postId}`)
-      .then(data => dispatch({ type: 'ADD_LIKE', data: data.data[0] }))
-})
+      .then(data => dispatch({ type: 'GET_LIKES', data: data.data[0] }))
+  })
 }
 
 export function getPostEdit() {
