@@ -17,7 +17,7 @@ class Navbar extends React.Component {
             ( this.props.signed_in && this.props.twitter) ? 
               <a href={"/user/dashboard/" +this.props.id}>{"@" + this.props.twitter}</a>
             : 
-              "@plonialmoni"
+              <a href={"/user/dashboard/" +this.props.id}>@plonialmoni</a>
           }
           </div>
         </div>

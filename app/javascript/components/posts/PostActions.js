@@ -24,7 +24,6 @@ class PostActions extends React.Component {
       draft_json: rawDraft
       }
     })
-      console.log(draft)
       if (this.props.currentDraft.isSaved === true) {
          fetch(`/posts/${this.props.currentDraft.id}`, {
             method: 'PATCH',
@@ -53,7 +52,7 @@ class PostActions extends React.Component {
       return (
          <div>
             <span className="saved-message">{saved}</span>
-            <button className="PostAction-buttons" onClick={this.saveOrUpdateDraft}>Save Draft</button>
+            <button className="PostAction-buttons" onClick={this.saveOrUpdateDraft}>Save</button>
          </div>
       )
    }

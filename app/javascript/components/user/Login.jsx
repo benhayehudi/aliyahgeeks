@@ -28,7 +28,7 @@ class Login extends React.Component {
               </form>
             </div>
             <div id="login-footer">
-              Don't have an account yet? <a href="/user/new">Sign up today!</a>
+              Don't have an account yet? <a href="/sessions/new">Sign up today!</a>
             </div>
           </div>
         </div>

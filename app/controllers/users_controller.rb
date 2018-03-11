@@ -13,6 +13,15 @@ class UsersController < ApplicationController
   def show
   end
 
+  def create 
+    @user = User.new(user_params)
+    if @user.save 
+      redirect_to user_login_path
+    else
+      render json: { errors: @user.errors.full_messages }, status: :bad_request
+    end
+  end 
+
   def view 
     user_info = { 
       :user => @user.user_dashboard_info, :posts => @user.user_posts, :bookmarks => @user.user_bookmarks, :bookmark_count => @user.bookmark_count
@@ -57,7 +66,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
  
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :first_name, :last_name, :location, :twtter, :image, :password, :encrypted_password)
     end

@@ -9,7 +9,6 @@ class EditProfile extends React.Component {
     this.props.loggedIn()
   }
   render() {  
-    console.log("edit")
     return (
       <React.Fragment>
         <Navbar />
@@ -18,8 +17,8 @@ class EditProfile extends React.Component {
           <div className="edit-profile-box">
             <div id="login-header">Edit Profile</div>
             <div id="login-form">
-              <form method="post" enctype="multipart/form-data" action={"/user/edit/" + this.props.id}>
-                <label for="email">Email</label><input type="email" name="[user]email" size="30" value={this.props.email}/>
+              <form method="post" encType="multipart/form-data" action={"/user/edit/" + this.props.id}>
+                <label htmlFor="email">Email</label><input type="email" name="[user]email" size="30" value={this.props.email}/>
                 <br />
                 <label htmlFor="first_name">First Name</label><input type="text" name="[user]first_name" value={this.props.first_name} size="30" />
                 <br />

@@ -10,9 +10,22 @@ import PostActions from './PostActions';
 
 
 class WritePost extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: ''
+    };
+   this.handleChange = this.handleChange.bind(this);
+  }
+   handleChange(event) {
+    this.setState({title: event.target.value});
+  }
+  
+
   onChange = (editorState) => {
     this.props.saveEditorState(editorState)
  };
+
 
  focus = () => this.refs.editor.focus();
 
@@ -70,8 +83,10 @@ class WritePost extends React.Component {
     this.props.loggedIn();
     this.props.getPostEdit();
   }
+  componentWillReceiveProps() {
+    this.setState({ title: this.props.post.post !== undefined && this.props.post.post.length !== 0 ? this.props.post.post.title : "Loading..." })
+  }
   render() {
-    console.log(this.props.post)
     const editorState = this.props.editorState;
       let className = 'PostEditor-editor';
       var contentState = this.props.editorState.getCurrentContent();
@@ -96,7 +111,7 @@ class WritePost extends React.Component {
             <div id="writepost-form">
               <form onSubmit={this.saveOrUpdateDraft} encType="multipart/form-data" method="post">
               <input type="hidden" id="post-user-id" name="[post]user_id" value={this.props.id} />
-              <span id="post-title"><label htmlFor="title">Title </label><input type="text" id="post-title-text" name="post[title]" value={this.props.post !== undefined && this.props.post.length !== 0 ? this.props.post.post.title : ''}/></span>
+              <span id="post-title"><label htmlFor="title">Title </label><input type="text" id="post-title-text" name="post[title]" value={this.state.title} onChange={this.handleChange}/></span>
               <br />
               <fieldset id="post-tags">
                 <legend>Choose your tags</legend>

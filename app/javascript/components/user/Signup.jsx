@@ -11,14 +11,14 @@ class Signup extends React.Component {
           <div className="login-box">
             <div id="login-header">Sign Up</div>
             <div id="login-form">
-              <form method="post" action="sessions/new" autocomplete="on">
-                <label for="first_name">First Name</label><input type="text" name="fname" size="20" required />
+              <form method="post" action="/users" autocomplete="on">
+                <label for="first_name">First Name</label><input type="text" name="user[first_name]" size="20" required />
                 <br />
-                <label for="last_name">Last Name</label><input type="text" name="lname" size="20" required />
+                <label for="last_name">Last Name</label><input type="text" name="user[last_name]" size="20" required />
                 <br />
-                <label for="email">Email</label><input type="email" name="email" autocomplete="email" size="20" required />
+                <label for="email">Email</label><input type="email" name="user[email]" id="user_email" autocomplete="email" size="20" required />
                 <br />
-                <label for="password">Password</label><input type="password" name="password" size="20" required />
+                <label for="password">Password</label><input type="password" name="user[password]" id="user_password" size="20" required />
                 <br />
                 <div id="submit-btn"><input type="submit" name="submit" /></div>
               </form>

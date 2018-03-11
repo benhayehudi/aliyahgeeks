@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, :controllers => { :sessions => 'users/sessions'}
+  devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations'}
   root to: "pages#home"
   
   resources :sessions
@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   resources :bookmarks
   get '/postlikes/:postId', to: 'postlikes#show'
   post '/postlikes', to: 'postlikes#create'
+
+  resources :users 
+  post '/users/new', to: 'users#create'
 
 end

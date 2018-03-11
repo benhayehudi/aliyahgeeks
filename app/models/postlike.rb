@@ -28,7 +28,7 @@ class Postlike < ApplicationRecord
         self.hands > 0 ? self.hands = 0 : self.hands = 1
         self.save
       elsif type == "likes"
-        elf.likes > 0 ? self.likes = 0 : self.likes = 1
+        self.likes > 0 ? self.likes = 0 : self.likes = 1
         self.save
       end
     end

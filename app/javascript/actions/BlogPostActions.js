@@ -120,7 +120,8 @@ export function addStar(counter, postId, userId) {
 
   const payload = {
     likes: counter,
-    postId: postId
+    post_id: postId,
+    user_id: userId
   }  
   const request = {
     method: 'post',
@@ -132,8 +133,9 @@ export function addStar(counter, postId, userId) {
   };
 
   fetch('/postlikes', request)
+    .then(data => fetch(`/postlikes/${postId}`))
     .then(data => data.json())
-    .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
+    .then(data => dispatch({ type: 'GET_LIKES', data: data[0] }))
   }
 )}
 
@@ -142,7 +144,8 @@ export function addHand(counter, postId, userId) {
 
   const payload = {
     hands: counter,
-    postId: postId
+    post_id: postId,
+    user_id: userId
   }  
   const request = {
     method: 'post',
@@ -154,8 +157,9 @@ export function addHand(counter, postId, userId) {
   };
 
   fetch('/postlikes', request)
+    .then(data => fetch(`/postlikes/${postId}`))
     .then(data => data.json())
-    .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
+    .then(data => dispatch({ type: 'GET_LIKES', data: data[0] }))
   }
 )}
 
