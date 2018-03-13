@@ -12,13 +12,13 @@ import PostActions from './PostActions';
 class WritePost extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: ''
-    };
-   this.handleChange = this.handleChange.bind(this);
-  }
-   handleChange(event) {
-    this.setState({title: event.target.value});
+    this.state = (this.props)
+
+   this.handleOnChange = (event) => {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
   }
   
 
@@ -83,10 +83,17 @@ class WritePost extends React.Component {
     this.props.loggedIn();
     this.props.getPostEdit();
   }
-  componentWillReceiveProps() {
-    this.setState({ title: this.props.post.post !== undefined && this.props.post.post.length !== 0 ? this.props.post.post.title : "Loading..." })
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.post.post) 
+      this.setState({
+        title: nextProps.post.post.title,
+        image: nextProps.post.post.image_file_name,
+        tags: nextProps.post.post.tags,
+        publish: nextProps.post.post.publish
+      })
   }
   render() {
+    console.log(this.state.title)
     const editorState = this.props.editorState;
       let className = 'PostEditor-editor';
       var contentState = this.props.editorState.getCurrentContent();
@@ -111,7 +118,16 @@ class WritePost extends React.Component {
             <div id="writepost-form">
               <form onSubmit={this.saveOrUpdateDraft} encType="multipart/form-data" method="post">
               <input type="hidden" id="post-user-id" name="[post]user_id" value={this.props.id} />
-              <span id="post-title"><label htmlFor="title">Title </label><input type="text" id="post-title-text" name="post[title]" value={this.state.title} onChange={this.handleChange}/></span>
+              <span id="post-title">
+                <label htmlFor="title">Title</label>
+                <input 
+                  type="text" 
+                  id="post-title-text" 
+                  name="post[title]" 
+                  onChange={this.handleOnChange}
+                  defaultValue={this.state.title !== undefined && this.state.title.length !== 0 ? this.state.title : this.state.title}
+                />
+              </span>
               <br />
               <fieldset id="post-tags">
                 <legend>Choose your tags</legend>
@@ -127,7 +143,7 @@ class WritePost extends React.Component {
                 </div>
               </fieldset>
               <fieldset id="post-img-upload">
-              <span id="post-img-upload"><label htmlFor="img-upload">{this.props.post !== undefined && this.props.post.length !== 0 ? "Update Image" : "Choose Image"} </label><input type="file" id="post-image" name="post[image]" /></span>
+              <span id="post-img-upload"><label htmlFor="img-upload">{this.props.post.image_file_name !== undefined && this.props.post.image_file_name.length !== 0 ? "Update Image" : "Choose Image"} </label><input type="file" id="post-image" name="post[image]" /></span>
               </fieldset>
               <br />
               <fieldset id="publish-choice">
