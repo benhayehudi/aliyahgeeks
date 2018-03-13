@@ -1,24 +1,12 @@
-# README
+# AliyahGeeks: A Blog Platform
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails backend and React with Redux frontend blog platform. Devise is used for user authentication and Draft.js for blog posts.
 
-Things you may want to cover:
+To install and run:
 
-* Ruby version
+* Fork a copy
+* Run `bundle install` to setup the Ruby gem dependencies
+* Make sure you have Foreman at (https://github.com/ddollar/foreman) and run `foreman start -f Procfile.dev -p 3000`
+* Create a user on the frontend and set the admin flag to true in Rails console
+* The admin backend can be accessed at https://localhost:3000/admin 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
