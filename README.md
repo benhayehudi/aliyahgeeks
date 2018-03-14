@@ -9,4 +9,3 @@ To install and run:
 * Make sure you have Foreman at (https://github.com/ddollar/foreman) and run `foreman start -f Procfile.dev -p 3000`
 * Create a user on the frontend and set the admin flag to true in Rails console
 * The admin backend can be accessed at https://localhost:3000/admin 
-

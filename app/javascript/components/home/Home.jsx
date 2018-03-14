@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../containers/Navbar';
 import PostSnippetCard from '../containers/PostSnippetCard';
+import LoadingBox from '../containers/LoadingBox';
 import { loggedIn } from '../../actions/UserActions';
 import { getAllPosts } from '../../actions/BlogPostActions';
 import { connect } from 'react-redux';
@@ -17,7 +18,7 @@ class Home extends React.Component {
       this.props.posts : null
     const renderedPosts = 
       this.props.posts !== undefined && this.props.posts.length !== 0 ?
-        loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : "Loading..."
+        loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : <LoadingBox />
     return (
       <React.Fragment>
         <Navbar />
