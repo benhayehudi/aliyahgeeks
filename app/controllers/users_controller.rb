@@ -37,6 +37,9 @@ class UsersController < ApplicationController
     end 
   end
 
+  def reset_pw 
+  end
+
   def user_check
     if current_user
       render :json => current_user.to_json(:only => [:id, :email, :first_name, :last_name, :twtter, :location], :methods => [:headshot_url, :user_bookmarks, :bookmark_count])

@@ -13,6 +13,7 @@ import WritePost from './components/posts/WritePost';
 import ViewPost from './components/posts/ViewPost';
 import Login from './components/user/Login';
 import Signup from './components/user/Signup';
+import ResetPassword from './components/user/ResetPassword';
 // import axios from 'axios';
 import { loggedIn } from './actions/UserActions';
 import { bindActionCreators } from 'redux';
@@ -27,6 +28,7 @@ const ReactRouter = () => (
       <Route exact path='/user/dashboard/:id' component={Dashboard} />
       <Route exact path='/user/edit/:id'  component={EditProfile} />
       <Route exact path='/user/login' component={Login} />
+      <Route exact path='/users/password/reset' component={ResetPassword} />
       <Route exact path='/sessions/new' component={Signup} />
       <Route exact path='/posts/new' component={WritePost} />
       <Route exact path='/post/view/:id' component={ViewPost} />

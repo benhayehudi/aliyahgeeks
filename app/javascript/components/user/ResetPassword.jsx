@@ -6,7 +6,7 @@ import { loggedIn } from '../../actions/UserActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-class Login extends React.Component {
+class ResetPassword extends React.Component {
   componentDidMount(){
     this.props.loggedIn()
   }
@@ -17,18 +17,16 @@ class Login extends React.Component {
 
         <div className="login-container">
           <div className="login-box">
-            <div id="login-header">Login</div>
+            <div id="login-header">Reset Password</div>
             <div id="login-form">
-              <form method="post" action="/users/sign_in">
-                <label for="email">Email</label><input type="email" name="user[email]" size="30" />
+              <form method="post" action="/users/password">
+                <label htmlFor="email">Email</label><input type="email" name="user[email]" id="user_email" size="30" />
                 <br />
-                <label for="password">Password</label><input type="password" name="user[password]" size="30" />
-                <br />
-                <div id="submit-btn"><input type="submit" name="commit" value="Log in" data-disable-with="Log in" /></div>
+                <div id="submit-btn"><input type="submit" name="commit" value="Send Me Reset Password Instructions" data-disable-with="Log in" /></div>
               </form>
             </div>
             <div id="login-footer">
-              Don't have an account yet? <a href="/sessions/new">Sign up today!</a> <br/> (Forgot your password? <a href="/users/password/reset">Reset it here</a>)
+              Don't have an account? <a href="/sessions/new">Sign up today!</a>
             </div>
           </div>
         </div>
@@ -53,4 +51,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { loggedIn })(Login);
+export default connect(mapStateToProps, { loggedIn })(ResetPassword);

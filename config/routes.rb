@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations'}
+  devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations', :passwords => 'users/passwords'}
   root to: "pages#home"
   
   resources :sessions
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/users/check_for_user', to: 'users#user_check'
   get '/users/sign_out', to: 'users#destroy'
   get '/user/posts/:id', to: 'users#view', as: :user_posts_api
+  get '/users/password/reset', to: 'users#reset_pw', as: :reset_password
 
   resources :posts 
   post '/posts/new', to: 'posts#create'
