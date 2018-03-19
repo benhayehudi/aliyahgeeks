@@ -1,0 +1,39 @@
+table {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 1.2em;
+  display: block;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-color: grey;
+}
+
+table td {
+  border: 1px solid #dbdbdb;
+  padding: 5px 1vw;
+  width: 1000px;
+  box-sizing: border-box;
+}
+
+td, th {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+table img {
+  height: auto;
+  position: relative;
+  display: block;
+  margin: auto;
+  left: -4%;
+  width: 250px;
+}
+
+#about-team-heading {
+  text-align: center; 
+}
+
+b {
+  font-weight: bold;
+}

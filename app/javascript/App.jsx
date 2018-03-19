@@ -4,6 +4,7 @@ import {
   Route, Switch
 } from 'react-router-dom'
 import Home from './components/home/Home';
+import About from './components/home/About';
 import Footer from './components/containers/Footer';
 import Header from './components/containers/Header';
 import Navbar from './components/containers/Navbar';
@@ -25,6 +26,7 @@ const ReactRouter = () => (
   <Router>
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route exact path='/about' component={About} />
       <Route exact path='/user/dashboard/:id' component={Dashboard} />
       <Route exact path='/user/edit/:id'  component={EditProfile} />
       <Route exact path='/user/login' component={Login} />

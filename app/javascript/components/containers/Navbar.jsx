@@ -34,9 +34,8 @@ class Navbar extends React.Component {
         </div>
         <div className="navbar-item navbar-links">
           <span id="links-heading">Get Around</span>
-          <span id="link-item">About</span>
+          <span id="link-item"><a href="/about">About</a></span>
           <span id="link-item">Sponsors</span>
-          <span id="link-item">Shop Rechov Aliyah</span>
           <span id="link-item">Privacy Policy</span>
           <span id="link-item">Terms of Use</span>
           <span id="link-item">Code of Conduct</span>

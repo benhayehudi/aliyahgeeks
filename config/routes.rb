@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   resources :users 
   post '/users/new', to: 'users#create'
 
+  get '/about', to: 'pages#about'
+
 end
