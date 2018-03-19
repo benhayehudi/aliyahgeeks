@@ -7,6 +7,8 @@ import Home from './components/home/Home';
 import About from './components/home/About';
 import Privacy from './components/home/Privacy';
 import Terms from './components/home/Terms';
+import Conduct from './components/home/Conduct';
+import Contact from './components/home/Contact';
 import Footer from './components/containers/Footer';
 import Header from './components/containers/Header';
 import Navbar from './components/containers/Navbar';
@@ -31,6 +33,8 @@ const ReactRouter = () => (
       <Route exact path='/about' component={About} />
       <Route exact path='/privacy' component={Privacy} />
       <Route exact path='/terms' component={Terms} />
+      <Route exact path='/conduct' component={Conduct} />
+      <Route exact path='/contact' component={Contact} />
       <Route exact path='/user/dashboard/:id' component={Dashboard} />
       <Route exact path='/user/edit/:id'  component={EditProfile} />
       <Route exact path='/user/login' component={Login} />

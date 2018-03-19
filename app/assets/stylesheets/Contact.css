@@ -1,0 +1,29 @@
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  height: 40%;
+  min-height: 20vh;
+  max-width: 100%;
+  margin: 20px;
+  margin-left: 4%;
+  padding: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  background-color: #ffffff;
+}
+
+#contact-body {
+  font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  font-size: 21px;
+  line-height: 32px;
+  overflow-wrap: break-word;
+  padding-bottom: 20px;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+}

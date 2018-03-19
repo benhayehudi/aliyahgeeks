@@ -29,17 +29,16 @@ class Navbar extends React.Component {
           <span id="sponsors-heading"><span id="heart">&hearts;</span>Sponsors<span id="heart">&hearts;</span></span>
           <div id="navbar-sponsor-img"><img src="/assets/sponsors-wanted.png" alt="sponsor wanted" /></div>
           <div id="navbar-sponsor-lead">
-            Looking to reach an English speaking audience interested in all things Israel? Consider becoming a sponsor today!
+            Looking to reach an English speaking audience interested in all things Israel? <a href="mailto:sayhi@rechovaliyah.com">Consider becoming a sponsor today!</a>
           </div>
         </div>
         <div className="navbar-item navbar-links">
           <span id="links-heading">Get Around</span>
           <span id="link-item"><a href="/about">About</a></span>
-          <span id="link-item">Sponsors</span>
           <span id="link-item"><a href="/privacy">Privacy Policy</a></span>
           <span id="link-item"><a href="/terms">Terms of Use</a></span>
-          <span id="link-item">Code of Conduct</span>
-          <span id="link-item">Contact</span>
+          <span id="link-item"><a href="/conduct">Code of Conduct</a></span>
+          <span id="link-item"><a href="/contact">Contact</a></span>
         </div>
       </div>
     )

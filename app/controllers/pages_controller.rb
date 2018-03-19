@@ -10,4 +10,10 @@ class PagesController < ApplicationController
   
   def terms 
   end
+
+  def conduct 
+  end
+
+  def contact 
+  end
 end
