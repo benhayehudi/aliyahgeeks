@@ -5174,6 +5174,12 @@ react-lazy-load@^3.0.13:
     lodash.throttle "^4.0.0"
     prop-types "^15.5.8"
 
+react-meta-tags@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-meta-tags/-/react-meta-tags-0.3.0.tgz#7d99e8629d42da97f1b9b974b11712a1b51eaec4"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-quill@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/react-quill/-/react-quill-1.2.6.tgz#4192b3fc8a446363605d2c48f7fb6a1d32a00eb4"

@@ -6,6 +6,7 @@ import { loggedIn } from '../../actions/UserActions';
 import { getAllPosts } from '../../actions/BlogPostActions';
 import { connect } from 'react-redux';
 import LazyLoad from 'react-lazy-load';
+import MetaTags from 'react-meta-tags';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -21,6 +22,16 @@ class Home extends React.Component {
         loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : <LoadingBox />
     return (
       <React.Fragment>
+        <MetaTags>
+          <meta property="og:title" content="Rechov Aliyah"/>
+          <meta property="og:description" content="Share your aliyah story in a supportive and welcoming community of aliyah minded people."/>
+          <meta property="og:image" content="/assets/images/rechov-aliyah-header-img.png"/>
+          <meta name="twitter:title" content="Rechov Aliyah"/>
+          <meta name="twitter:description" content="Share your aliyah story."/>
+          <meta name="twitter:image" content="/assets/images/rechov-aliyah-header-img.png"/>
+          <meta name="twitter:card" content="summary_large_image"/>
+        </MetaTags>
+
         <Navbar />
         <div className="body-container">
           {renderedPosts}
