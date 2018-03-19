@@ -37,7 +37,7 @@ class Navbar extends React.Component {
           <span id="link-item"><a href="/about">About</a></span>
           <span id="link-item">Sponsors</span>
           <span id="link-item"><a href="/privacy">Privacy Policy</a></span>
-          <span id="link-item">Terms of Use</span>
+          <span id="link-item"><a href="/terms">Terms of Use</a></span>
           <span id="link-item">Code of Conduct</span>
           <span id="link-item">Contact</span>
         </div>
