@@ -37,3 +37,12 @@ table img {
 b {
   font-weight: bold;
 }
+
+#privacy-body {
+  font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  font-size: 21px;
+  line-height: 32px;
+  overflow-wrap: break-word;
+  padding-bottom: 20px;
+  align-self: center;
+}

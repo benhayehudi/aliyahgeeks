@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   post '/users/new', to: 'users#create'
 
   get '/about', to: 'pages#about'
+  get '/privacy', to: 'pages#privacy'
 
 end
