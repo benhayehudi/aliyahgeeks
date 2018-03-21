@@ -14,7 +14,8 @@ class PostActions extends React.Component {
   saveOrUpdateDraft = (event) => {
   event.preventDefault();
   const rawDraft = convertToRaw(this.props.editorState.getCurrentContent());
-    const draft = JSON.stringify({ id: this.props.id, 
+    const draft = JSON.stringify({ 
+      id: this.props.current_post.post.id, 
       post: {
       title: document.getElementById("post-title-text").value,
       image: $('#post-image').prop('files')[0],
@@ -25,7 +26,7 @@ class PostActions extends React.Component {
       }
     })
       if (this.props.currentDraft.isSaved === true) {
-         fetch(`/posts/${this.props.currentDraft.id}`, {
+         fetch(`/posts/${this.props.current_post.post.id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: draft})
