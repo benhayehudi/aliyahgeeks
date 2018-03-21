@@ -16,7 +16,7 @@ class About extends React.Component {
             All are welcome to create accounts and blog posts here. You are welcome to cross post from your own personal sites as well. We will do our best to amplify your posts on social media and grow your readership. Please make sure not to share other people's content without their permission.
             <br /><br />
             <h1 id="about-team-heading">Who's Behind This?</h1>
-            <table>
+            <table id="about-table">
               <tbody>
                 <tr>
                   <td>

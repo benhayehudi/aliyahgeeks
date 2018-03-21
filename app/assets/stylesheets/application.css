@@ -16,6 +16,7 @@
  /* Tablet */
 
 @media screen and (max-width: 768px) {
+  
   /* NAVBAR */
 
   .navbar-container {
@@ -456,6 +457,19 @@ input:required:valid {
   font-weight: bolder;
   text-decoration: none;
   color: #09071E;
+}
+
+ /* EDIT PROFILE PAGE */
+
+ .edit-profile-box {
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  justify-content:center;
+  align-items:center;
+  background-color: #FFFFFF;
+  padding: 10px;
 }
  
 }
@@ -1256,6 +1270,109 @@ input:required:valid {
   margin-bottom: auto;
 }
 
+ /* EDIT PROFILE PAGE */
+
+ .edit-profile-box {
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  justify-content:center;
+  align-items:center;
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+/* ABOUT PAGE */
+
+#about-table td {
+  width: 40%;
+  height: 50%;
+  font-size: 12px;
+}
+
+#about-table td img {
+  width: 80%;
+}
  
- 
+}
+
+/* Odd Sizes */
+
+@media screen and (max-width: 1110px) {
+  /* NAVBAR */
+
+  #navbar-profile-info {
+   font-size: 18px; 
+   width: 50%;
+   flex: 0 0 70%;  
+ }
+
+ #navbar-bookmark-title {
+    width: 40%;
+    flex: 0 0 60%;
+    margin-right: 20px;
+    font-size: 14px;
+  }
+
+  #sponsors-heading, #heart {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  
+  #heart {
+    margin: 20px;
+  }
+}
+
+/* Odd Sizes */
+
+@media screen and (max-width: 1030px) {
+  /* NAVBAR */
+
+  #navbar-profile-info {
+   font-size: 16px; 
+   width: 50%;
+   flex: 0 0 70%;  
+ }
+
+ #navbar-bookmark-title {
+    width: 40%;
+    flex: 0 0 60%;
+    margin-right: 20px;
+    font-size: 14px;
+  }
+
+  #sponsors-heading, #heart {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  
+  #heart {
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  /* NAVBAR */
+
+  #navbar-profile-info {
+   font-size: 14px; 
+   width: 50%;
+   flex: 0 0 70%;  
+ }
+}
+
+@media screen and (max-width: 885px) {
+  /* NAVBAR */
+
+  #navbar-profile-info {
+   font-size: 12px; 
+   width: 50%;
+   flex: 0 0 70%;  
+ }
+ #navbar-sponsor-lead {
+  margin: 15px;
+  font-size: 14px;
+}
 }
