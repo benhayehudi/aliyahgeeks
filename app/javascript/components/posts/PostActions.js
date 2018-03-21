@@ -14,8 +14,7 @@ class PostActions extends React.Component {
   saveOrUpdateDraft = (event) => {
   event.preventDefault();
   const rawDraft = convertToRaw(this.props.editorState.getCurrentContent());
-    const draft = JSON.stringify({ 
-      id: this.props.current_post.post.id, 
+    const draft = JSON.stringify({ id: this.props.id, 
       post: {
       title: document.getElementById("post-title-text").value,
       image: $('#post-image').prop('files')[0],
@@ -25,8 +24,8 @@ class PostActions extends React.Component {
       draft_json: rawDraft
       }
     })
-      if (this.props.current_post !== undefined || this.props.currentDraft.isSaved === true) {
-         fetch(`/posts/${this.props.current_post.post.id}`, {
+      if (this.props.currentDraft.isSaved === true) {
+         fetch(`/posts/${this.props.currentDraft.id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: draft})
@@ -49,7 +48,7 @@ class PostActions extends React.Component {
       }
    }
    render(){
-      let saved = this.props.currentDraft.isSaved || this.props.current_post !== undefined ? "Saved" : "Not Saved"
+      let saved = this.props.currentDraft.isSaved ? "Saved" : "Not Saved"
       return (
          <div>
             <span className="saved-message">{saved}</span>
@@ -64,8 +63,7 @@ const mapStateToProps = state => {
       signed_in: state.users.signed_in,
       id: state.users.id,
       editorState: state.posts.editorState,
-      currentDraft: state.posts.currentDraft,
-      current_post: state.posts.current_post
+      currentDraft: state.posts.currentDraft
    }
 }
 export default connect(mapStateToProps, { setCurrentDraft, loggedIn })(PostActions)
