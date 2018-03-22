@@ -40,7 +40,11 @@ def create
 end
 
 def update
-  
+  if @post.update!(post_params)
+    edit_post_path(@post)
+  else
+    edit_post_path(@post)
+  end
 end
 
 def edit 

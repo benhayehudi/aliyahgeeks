@@ -15,25 +15,26 @@ class PostActions extends React.Component {
   event.preventDefault();
   const rawDraft = convertToRaw(this.props.editorState.getCurrentContent());
     const draft = JSON.stringify({ 
-      id: this.props.current_post.post.id, 
+      id: this.props.id, 
       post: {
       title: document.getElementById("post-title-text").value,
-      image: $('#post-image').prop('files')[0],
-      tags: document.getElementById("post-tags-content").value,
+      // image: $('#post-image').prop('files')[0],
+      // tags: document.getElementById("post-tags-content").value,
       publish: document.getElementById("post-publish-content").value,
       user_id: document.getElementById("post-user-id").value,
       draft_json: rawDraft
       }
     })
-      if (this.props.currentDraft.isSaved === true) {
+      if (this.props.currentDraft.isSaved === true || this.props.current_post !== undefined && this.props.current_post.length !== 0) {
          fetch(`/posts/${this.props.current_post.post.id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: draft})
          .then(res => res.json())
-         .catch(error => console.error('Error:', error))
+         .catch(error => console.error('Error'))
          .then(response => {
-            console.log('Success:', response);
+            console.log('Success');
+            this.props.setCurrentDraft({isSaved: true});
          })
       } else {
          fetch(`/posts/new`, {
@@ -64,7 +65,8 @@ const mapStateToProps = state => {
       signed_in: state.users.signed_in,
       id: state.users.id,
       editorState: state.posts.editorState,
-      currentDraft: state.posts.currentDraft
+      currentDraft: state.posts.currentDraft,
+      current_post: state.posts.current_post
    }
 }
 export default connect(mapStateToProps, { setCurrentDraft, loggedIn })(PostActions)

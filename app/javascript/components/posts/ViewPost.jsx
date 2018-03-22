@@ -73,12 +73,6 @@ class ViewPost extends React.Component {
                 {date.toLocaleDateString("en-US",dateOptions)}
               </h2>
             </div>
-            <div id="tag-info">
-            {"#"+this.props.post.post.tags}
-            </div>
-            <div id="post-img">
-              <img src={this.props.post.image_file_name ? "/assets/post_pictures/" + this.props.post.image_file_name : "/assets/post_pictures/default-post-img.png"} />
-            </div>
             <div id="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
             <div id="post-actions">
               <button id="button-heart" data-type="hearts" onClick={() => this.addHeartCount()}>

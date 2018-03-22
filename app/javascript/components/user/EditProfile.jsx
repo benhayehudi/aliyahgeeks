@@ -30,6 +30,7 @@ class EditProfile extends React.Component {
       })
   }
   render() {  
+    console.log(this.state.email)
     return (
       <React.Fragment>
         <Navbar />
@@ -45,7 +46,7 @@ class EditProfile extends React.Component {
                   name="[user]email" 
                   size="30" 
                   onChange={this.handleOnChange}
-                  defaultValue={this.state.email}
+                  value={this.props.email}
                 />
                 <br />
                 <label htmlFor="first_name">First Name</label>

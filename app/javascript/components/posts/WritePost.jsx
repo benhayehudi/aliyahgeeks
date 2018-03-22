@@ -125,26 +125,9 @@ class WritePost extends React.Component {
                   id="post-title-text" 
                   name="post[title]" 
                   onChange={this.handleOnChange}
-                  defaultValue={this.state.title !== undefined && this.state.title.length !== 0 ? this.state.title : this.state.title}
+                  value={this.props.post.post.title !== undefined && this.props.post.post.title.length !== 0  && this.props.post.post.title !== null ? this.props.post.post.title : "Loading..."}
                 />
               </span>
-              <br />
-              <fieldset id="post-tags">
-                <legend>Choose your tags</legend>
-                <div id="tag-div">
-                  <input type="checkbox" id="post-tags-content" name="post[tags]" value="jerusalem" />
-                  <label htmlFor="jerusalem">Jerusalem</label>
-                  <input type="checkbox" id="post-tags-content" name="post[tags]" value="modiin" />
-                  <label htmlFor="modiin">Modiin</label>
-                  <input type="checkbox" id="post-tags-content" name="post[tags]" value="flight" />
-                  <label htmlFor="flight">Flight</label>
-                  <input type="checkbox" id="post-tags-content" name="post[tags]" value="kids" />
-                  <label htmlFor="kids">Kids</label>
-                </div>
-              </fieldset>
-              <fieldset id="post-img-upload">
-              <span id="post-img-upload"><label htmlFor="img-upload">{this.props.post.image_file_name !== undefined && this.props.post.image_file_name.length !== 0 ? "Update Image" : "Choose Image"} </label><input type="file" id="post-image" name="post[image]" /></span>
-              </fieldset>
               <br />
               <fieldset id="publish-choice">
                 <legend>Ready to publish?</legend>
@@ -156,7 +139,6 @@ class WritePost extends React.Component {
                 </div>
               </fieldset>
               <br />
-              
               <div>
                 <div className="PostEditor-root">
                   <BlockStyleControls
