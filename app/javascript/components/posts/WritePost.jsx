@@ -129,9 +129,9 @@ class WritePost extends React.Component {
               <fieldset id="publish-choice">
                 <legend>Ready to publish?</legend>
                 <div id="tag-div">
-                  <input type="radio" id="post-publish-content" name="post[publish]" value="true">Yes</input>
+                  <input type="radio" id="post-publish-content" name="post[publish]" value="true" />
                   <label htmlFor="Yes">Yes</label>
-                  <input type="radio" id="post-publish-content" name="post[publish]" value="false">False</input>
+                  <input type="radio" id="post-publish-content" name="post[publish]" value="false"/>
                   <label htmlFor="No">No</label>
                 </div>
               </fieldset>
