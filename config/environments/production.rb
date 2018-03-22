@@ -102,7 +102,7 @@ Rails.application.configure do
     :port    => 587,
     :user_name => 'ben@rechovaliyah.com',
     :password => ENV['SMTP_PASSWORD'],
-    :authentication => 'plain',
+    :authentication => :plain,
     :domain  => 'rechovaliyah.com',
     :enable_starttls_auto => true
   }
