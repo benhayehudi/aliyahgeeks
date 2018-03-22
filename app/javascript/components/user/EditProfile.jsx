@@ -30,7 +30,6 @@ class EditProfile extends React.Component {
       })
   }
   render() {  
-    
     return (
       <React.Fragment>
         <Navbar />
@@ -74,7 +73,7 @@ class EditProfile extends React.Component {
                   type="text" 
                   name="[user]twtter" 
                   onChange={this.handleOnChange}
-                  defaultValue={this.state.twitter !== undefined && this.state.twitter.length !== 0 ? this.state.twitter : this.state.twitter} 
+                  defaultValue={this.state.twitter !== undefined && this.state.twitter !== null && this.state.twitter.length !== 0 ? this.state.twitter : this.state.twitter} 
                   size="30" 
                 />
                 <br />
@@ -83,7 +82,7 @@ class EditProfile extends React.Component {
                   type="text" 
                   name="[user]location" 
                   onChange={this.handleOnChange}
-                  defaultValue={this.state.user_location !== undefined && this.state.user_location.length !== 0 ? this.state.user_location : this.state.user_location} 
+                  defaultValue={this.state.user_location !== undefined && this.state.user_location !== null && this.state.user_location.length !== 0 ? this.state.user_location : this.state.user_location} 
                   size="30" 
                 />
                 <br />
