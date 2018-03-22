@@ -51,7 +51,8 @@ class UsersController < ApplicationController
   # # PATCH/PUT /users/1
   # # PATCH/PUT /users/1.json
   def update
-    if @user.update(user_params)
+    hash = user_params.reject { |k, v| v.blank? }
+    if @user.update_attributes(hash)
       dashboard_path(current_user)
     else
       dashboard_path(current_user)

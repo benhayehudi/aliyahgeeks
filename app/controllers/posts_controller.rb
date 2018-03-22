@@ -40,7 +40,8 @@ def create
 end
 
 def update
-  if @post.update!(post_params)
+  hash = post_params.reject { |k, v| v.blank? }
+  if @post.update_attributes(hash)
     edit_post_path(@post)
   else
     edit_post_path(@post)
