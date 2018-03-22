@@ -95,7 +95,7 @@ Rails.application.configure do
 
   config.serve_static_assets = true
 
-  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.default_url_options = {:host => 'rechovaliyah.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.office365.com",
