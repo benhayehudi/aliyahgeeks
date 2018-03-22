@@ -9,7 +9,7 @@ import { BlockStyleControls, InlineStyleControls } from './StyleControls';
 import PostActions from './PostActions';
 
 
-class WritePost extends React.Component {
+class EditPost extends React.Component {
   constructor(props) {
     super(props);
     this.state = (this.props)
@@ -81,6 +81,7 @@ class WritePost extends React.Component {
 
    componentDidMount(){
     this.props.loggedIn();
+    this.props.getPostEdit();
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.post.post) 
@@ -123,15 +124,16 @@ class WritePost extends React.Component {
                   id="post-title-text" 
                   name="post[title]" 
                   onChange={this.handleOnChange}
+                  value={this.props.post.post.title !== undefined && this.props.post.post.title.length !== 0  && this.props.post.post.title !== null ? this.props.post.post.title : "Loading..."}
                 />
               </span>
               <br />
               <fieldset id="publish-choice">
                 <legend>Ready to publish?</legend>
                 <div id="tag-div">
-                  <input type="radio" id="post-publish-content" name="post[publish]" value="true">Yes</input>
+                  <input type="radio" id="post-publish-content" name="post[publish]" value="true"/>
                   <label htmlFor="Yes">Yes</label>
-                  <input type="radio" id="post-publish-content" name="post[publish]" value="false">False</input>
+                  <input type="radio" id="post-publish-content" name="post[publish]" value="false" defaultChecked/>
                   <label htmlFor="No">No</label>
                 </div>
               </fieldset>
@@ -195,4 +197,4 @@ const mapStateToProps = state => {
     post: state.posts.current_post
   }
 }
-export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn, getPostEdit })(WritePost)
+export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn, getPostEdit })(EditPost)

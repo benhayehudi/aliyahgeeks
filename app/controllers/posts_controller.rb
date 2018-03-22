@@ -10,7 +10,7 @@ def index
   #   @posts = Post.find_by(user_id: params[:id]).order(created_at: :desc)
   #   render :json => @posts
   # else
-    @posts = Post.all.order(created_at: :desc).limit(5)
+    @posts = Post.all.where(publish: true).order(created_at: :desc).limit(5)
     render :json => @posts
   # end
 end

@@ -15,6 +15,7 @@ import Navbar from './components/containers/Navbar';
 import Dashboard from './components/user/Dashboard';
 import EditProfile from './components/user/EditProfile';
 import WritePost from './components/posts/WritePost';
+import EditPost from './components/posts/EditPost';
 import ViewPost from './components/posts/ViewPost';
 import Login from './components/user/Login';
 import Signup from './components/user/Signup';
@@ -42,7 +43,7 @@ const ReactRouter = () => (
       <Route exact path='/sessions/new' component={Signup} />
       <Route exact path='/posts/new' component={WritePost} />
       <Route exact path='/post/view/:id' component={ViewPost} />
-      <Route exact path='/posts/:id/edit' component={WritePost} />
+      <Route exact path='/posts/:id/edit' component={EditPost} />
     </Switch>
   </Router>
 )

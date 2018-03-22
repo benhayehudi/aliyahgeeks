@@ -20,7 +20,7 @@ class PostActions extends React.Component {
       title: document.getElementById("post-title-text").value,
       // image: $('#post-image').prop('files')[0],
       // tags: document.getElementById("post-tags-content").value,
-      publish: document.getElementById("post-publish-content").value,
+      publish: document.getElementById('post-publish-content').checked,
       user_id: document.getElementById("post-user-id").value,
       draft_json: rawDraft
       }
