@@ -1395,4 +1395,10 @@ img.loading-box {
 .loading-box {
   font-size: 10px;
 }
+
+/* EDIT PROFILE BOX */
+
+.edit-profile-box {
+  margin-left: 100px;
+}
 }
