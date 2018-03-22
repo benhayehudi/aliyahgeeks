@@ -1,4 +1,4 @@
 .loading-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
