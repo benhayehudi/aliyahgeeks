@@ -95,15 +95,21 @@ Rails.application.configure do
 
   config.serve_static_assets = true
 
-  config.action_mailer.default_url_options = {:host => 'rechovaliyah.com'}
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = {
+    :host => "bengreenberg.org"
+  }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'ben@bengreenberg.org'}
   config.action_mailer.smtp_settings = {
-    :address => "smtp.office365.com",
-    :port    => 587,
-    :user_name => 'ben@rechovaliyah.com',
-    :password => ENV['SMTP_PASSWORD'],
-    :authentication => :plain,
-    :domain  => 'rechovaliyah.com',
-    :enable_starttls_auto => true
+    address:              'smtpout.secureserver.net',
+    port:                 25,
+    domain:               'bengreenberg.org',
+    user_name:            'ben@bengreenberg.org',
+    password:             ENV["SMTP_PASSWORD"],
+    authentication:       :login,
+    enable_starttls_auto: false
   }
 end
