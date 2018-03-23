@@ -49,7 +49,7 @@ class Dashboard extends React.Component {
             {renderedPosts}
           </div>
 
-        <div id="dashboard-user-name">My Bookmarks</div>
+        <div id="dashboard-user-name" name="dashboard-bookmarks">My Bookmarks</div>
         <div className="dashboard-post-container">
             {renderedBookmarks}
         </div>
