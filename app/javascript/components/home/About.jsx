@@ -20,7 +20,7 @@ class About extends React.Component {
               <tbody>
                 <tr>
                   <td>
-                    <img src="/assets/headshots/ben_g_picture.jpg" alt="Ben Greenberg"/>
+                    <img src="/assets/headshots/ben_greenberg_headshot.png" alt="Ben Greenberg"/>
                   </td>
                   <td>
                     <span id="team-name"><b>Ben Greenberg, Founder</b></span>
