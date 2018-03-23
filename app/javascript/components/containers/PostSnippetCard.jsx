@@ -35,9 +35,7 @@ class PostSnippetCard extends React.Component {
           </div>
         </div>
         <div className="post-snippet-footer">
-          <div id="post-snippet-tags">
-            <p><span>{"#" + this.props.post.tags}</span></p>
-          </div>
+         
           <div id="post-snippet-links">
             <div id="post-snippet-heart"><img src="/assets/icons/heart-icon.jpeg"/>
             <div id="post-snippet-heart-count">{mappedHearts}</div></div>
