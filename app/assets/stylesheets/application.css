@@ -767,6 +767,8 @@ input:required:valid {
   /* flex-wrap: wrap; */
   justify-content: flex-start;
   font-size: 3vh;
+  margin-left: -230px;
+  margin-top: 50px;
   /* width: 100%; */
 }
 
@@ -792,8 +794,9 @@ input:required:valid {
   max-width: 100%;
   min-height: 10%;
   max-height: 100%;
-  margin-bottom: auto;
+  margin-bottom: -50px;
   margin-top: -20px;
+  margin-left: -250px;
 }
 
 #post-snippet-tags {  
