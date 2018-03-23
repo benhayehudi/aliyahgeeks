@@ -49,14 +49,14 @@
   align-items: center;
   text-align: left;
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 28px;
+  font-size: 20px;
   color: #0038b8;
 }
 
 #bookmark-count {
   font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", "TeXGyreHerosCnBold", "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
   font-stretch: condensed;
-  font-size: 1.1em;
+  font-size: 1.0em;
 }
 
 .navbar-sponsors {

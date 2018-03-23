@@ -861,6 +861,18 @@ input:required:valid {
   font-weight: 400;
 }
 
+/* DASHBOARD POST CONTAINER */
+
+#dashboard-post-author-container {
+  display: flex;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  justify-content: flex-start;
+  font-size: 3vh;
+  width: 100%;
+}
+
+
  /* VIEW POST PAGE */
 
  .post-container {

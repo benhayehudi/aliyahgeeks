@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../containers/Navbar';
-import LoadingBox from '../containers/LoadingBox';
+import DashboardLoadingBox from '../containers/DashboardLoadingBox';
 import { loggedIn } from '../../actions/UserActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -19,12 +19,12 @@ class Dashboard extends React.Component {
       this.props.posts.posts : null
     const renderedPosts = 
       this.props.posts !== undefined && this.props.posts.length !== 0 ?
-      loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : <LoadingBox />
+      loadedPosts.map(post => <PostSnippetCard post={post} key={post.id}/>) : <DashboardLoadingBox />
 
       const renderedBookmarks =
         this.props.bookmarks !== undefined && this.props.bookmarks.length !== 0 ?
           this.props.bookmarks.map(post => post.map(postDetails => 
-            <PostSnippetCard post={postDetails} key={post.id}/>)) : <LoadingBox />
+            <PostSnippetCard post={postDetails} key={post.id}/>)) : <DashboardLoadingBox />
     return (
       <React.Fragment>
         <Navbar />
