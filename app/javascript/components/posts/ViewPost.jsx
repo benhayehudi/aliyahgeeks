@@ -7,6 +7,7 @@ import CommentCard from '../containers/CommentCard';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import $ from 'jquery';
+import MetaTags from 'react-meta-tags';
 
 class ViewPost extends React.Component {
   constructor(props) {
@@ -79,6 +80,15 @@ class ViewPost extends React.Component {
         {
           this.props.post !== undefined && this.props.post.length !== 0  
         ?
+          <MetaTags>
+            <meta property="og:title" content={this.props.post.post.title}/>
+            <meta property="og:description" content={"Check out" + ' ' + this.props.post.author.first_name + ' ' + this.props.post.author.last_name + "'s last post on Rechov Aliyah"}/>
+            <meta property="og:image" content="/assets/images/rechov-aliyah-header-img.png"/>
+            <meta name="twitter:title" content={this.props.post.post.title}/>
+            <meta name="twitter:description" content={"Check out" + ' ' + this.props.post.author.first_name + ' ' + this.props.post.author.last_name + "'s last post on Rechov Aliyah"}/>
+            <meta name="twitter:image" content="/assets/images/rechov-aliyah-header-img.png"/>
+            <meta name="twitter:card" content="summary_large_image"/>
+        </MetaTags>
         <div className="post-container">
             <div id="post-title">
               <h1>{this.props.post.post.title}</h1>
