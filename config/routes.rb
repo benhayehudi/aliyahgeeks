@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get '/postlikes/:postId', to: 'postlikes#show'
   post '/postlikes', to: 'postlikes#create'
 
+  resources :comments 
+  post '/comments/new', to: 'comments#create'
+  get '/comments/:id', to: 'comments#show'
+
   resources :users 
   post '/users/new', to: 'users#create'
 

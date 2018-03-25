@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
  
   def edit
-    if current_user
+    if current_user || current_user.is_admin?
       user_profile_edit_path(current_user)
     else 
       root_path
@@ -68,6 +68,10 @@ class UsersController < ApplicationController
   private
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def is_admin?
+      current_user.admin == true
     end
  
     def user_params

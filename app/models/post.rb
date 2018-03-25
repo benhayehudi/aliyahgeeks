@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_one :postlike, :dependent => :delete
-  has_many :users, :through => :bookmarks
-  has_many :users, :through => :postlikes
+  has_many :users, :through => :bookmark
+  has_many :users, :through => :postlike
+  has_many :comments
   # after_create :create_postlike
 
   has_attached_file :image, styles: { med: "100x100", large: "200x200" }, :path =>"app/assets/images/post_pictures/:filename", :url => "/assets/post_pictures/:filename"

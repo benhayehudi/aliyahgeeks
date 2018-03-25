@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   has_many :posts
   has_many :postlikes
-  has_many :posts, :through => :bookmarks
+  has_many :posts, :through => :bookmark
   has_many :posts, :through => :postlikes
+  has_many :comments
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

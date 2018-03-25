@@ -2,15 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../../actions/UserActions';
 import { getPost, getLikes, addHeart, addStar, addHand, addBookmark } from '../../actions/BlogPostActions';
+import { getAllComments, addComment } from '../../actions/CommentActions';
+import CommentCard from '../containers/CommentCard';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import $ from 'jquery';
 
 class ViewPost extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.addUserComment = this.addUserComment.bind(this);
+  }
+
   componentDidMount(){
     this.props.loggedIn();
     this.props.getPost();
     this.props.getLikes();
+    this.props.getAllComments();
   }
 
   addHeartCount = () => {
@@ -40,7 +49,18 @@ class ViewPost extends React.Component {
     this.props.addBookmark(postId, userId);
   }
 
+  addUserComment(event) {
+    event.preventDefault();
+    let post_id = document.getElementById("comment-post-id").value
+    let user_id = document.getElementById("comment-user-id").value
+    let text = document.getElementById("text-area").value
+    this.props.addComment(post_id, user_id, text);
+  }
+
   render() {
+    const renderedComments =
+      this.props.comments.length !== 0 && this.props.comments !== undefined ? 
+      this.props.comments.map(comment => <CommentCard id={comment[0].comment.id} comment={comment[0]} />) : "Loading..."
     // Setup the rendering of the post body from editorState
     let html = 
       this.props.post !== undefined && this.props.post.length !== 0 ?
@@ -74,6 +94,7 @@ class ViewPost extends React.Component {
               </h2>
             </div>
             <div id="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
+            
             <div id="post-actions">
               <button id="button-heart" data-type="hearts" onClick={() => this.addHeartCount()}>
                 <img src="/assets/icons/heart-icon.jpeg" />
@@ -90,6 +111,32 @@ class ViewPost extends React.Component {
               <button id="button-bookmark" onClick={() => this.addUserBookmark()}>
                 <img src="/assets/icons/bookmark-icon-small.png" />
               </button> 
+            </div>
+            <div id="comments-container-container">
+              { this.props.signed_in ? 
+                <div id="comments-container">
+                  <form className="new_comment" id="new_comment" onSubmit={this.addUserComment}>
+                    <input type="hidden" name="user_id" id="comment-user-id" value={this.props.id} />
+                    <input type="hidden" name="post_id" id="comment-post-id" value={this.props.post.post.id} />
+                    <textarea placeholder="Contribute to this conversation" id="text-area" name="text" required="required"/>
+                    <input type="submit" name="submit" value="Submit" id="submit-button" onClick={this.addUserComment} />
+                  </form>
+                </div>
+              :
+                <div id="comments-container">
+                  <div id="post-title">Please login to share a comment</div>
+                  <form method="post" action="/users/sign_in">
+                    <label htmlFor="email">Email</label><input type="email" name="user[email]" size="30" />
+                    <br />
+                    <label htmlFor="password">Password</label><input type="password" name="user[password]" size="30" />
+                    <br />
+                    <div id="submit-btn"><input type="submit" name="commit" value="Log in" data-disable-with="Log in" /></div>
+                  </form>
+              </div>
+              }
+              <div id="single-comment">
+                {renderedComments}
+              </div>
             </div>
         </div>
         :
@@ -114,7 +161,8 @@ const mapStateToProps = state => {
     // stars: state.posts.current_post.post.postlike.likes,
     // hearts: state.posts.current_post.post.postlike.hearts,
     // hands: state.posts.current_post.post.postlike.hands,
-    editorState: state.posts.editorState
+    editorState: state.posts.editorState,
+    comments: state.comments.comments
   }
 }
-export default connect(mapStateToProps, { loggedIn, getPost, getLikes, addHeart, addStar, addHand, addBookmark })(ViewPost)
+export default connect(mapStateToProps, { loggedIn, getPost, getLikes, addHeart, addStar, addHand, addBookmark, getAllComments, addComment })(ViewPost)

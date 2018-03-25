@@ -1,0 +1,142 @@
+#comments-container-container {
+  padding-bottom: 20px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #ffffff;
+}
+
+#comments-container {
+  width: 800px;
+  max-width: 98%;
+  padding-top: 10px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+#comments-container form {
+  background: #f5f6f7;
+  overflow: auto;
+  position: relative;
+  /* margin-bottom: calc(0.8vw - 6px); */
+  z-index: 4;
+}
+
+#comments-container form textarea {
+  width: calc(100% - 52px);
+  margin: 15px auto 2px;
+  display: block;
+  resize: none;
+  border-radius: 3px;
+  border: 1px solid #e8e5e5;
+  height: 55px;
+  font-size: 16px;
+  padding: 6px;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  cursor: text;
+}
+
+#comments-container form input[type="submit"] {
+  margin-right: 19px;
+  background: #0045ff;
+  font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", "TeXGyreHerosCnBold", "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  font-stretch: condensed;
+  color: white;
+  border: 0px;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 3px;
+  /* margin-left: 2px; */
+  padding: 5px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+#single-comment {
+  padding: 0px;
+  border: 1px solid #dbdbdb;
+  background: white;
+  margin: 50px;
+}
+
+#single-comment-details {
+  padding: 0px;
+  border-top-left-radius: 3px;
+  color: #333333;
+  position: relative;
+}
+
+#single-comment-body {
+  padding: 1px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-bottom: 5px;
+  margin: 0;
+  width: 96%;
+  color: #0a0a0a;
+  font-size: 0.95em;
+  line-height: 1.35em;
+  overflow: hidden;
+  margin-bottom: -30px;
+  word-wrap: break-word;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  position: relative;
+}
+
+#comment-profile-pic {
+  height: 33px;
+  width: 33px;
+  border-radius: 50px;
+  margin: 1.5% 0.2% 1.5% 1.5%;
+}
+
+#comment-username {
+  vertical-align: calc(0.62vw + 13px);
+}
+
+#comment-username-inner {
+  vertical-align: middle;
+  display: inline-block;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  max-width: calc( 60% - 20px);
+}
+
+#comment-date {
+  border: none;
+  position: absolute;
+  top: calc(16px - 0.25vw);
+  right: calc(35px + 0.2vw);
+  font-size: 12px;
+  text-align: right;
+}
+
+#single-comment-body {
+  padding: 1px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-bottom: 5px;
+  margin: 0;
+  width: 96%;
+  color: #0a0a0a;
+  font-size: 0.95em;
+  line-height: 1.35em;
+  overflow: hidden;
+  margin-bottom: -30px;
+  word-wrap: break-word;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  position: relative;
+  z-index: 5;
+  overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 820px) {
+  #comments-container form {
+    width: calc(100% - 2px);
+    margin-left: 0%;
+    border: 1px solid #dbdbdb;
+  }
+}
