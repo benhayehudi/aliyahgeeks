@@ -751,14 +751,14 @@ input:required:valid {
 }
 
 .dashboard-edit-post-button a {
-  font-size: 6px;
+  font-size: 2px;
 }
 
 #post-snippet-title {
   display: flex;
   font-family: 'Oranienbaum', serif;
   color: #0A0A0A;
-  font-size: calc(0.8vh + 0.8vw);
+  font-size: calc(0.7vh + 0.7vw);
   font-weight: bold;
   min-width: 100%;
   padding: 5px;
@@ -772,6 +772,7 @@ input:required:valid {
   justify-content: flex-start;
   font-size: 3vh;
   margin-left: -180px;
+  margin-right: -100px;
   margin-top: 50px;
   /* width: 100%; */
 }
@@ -800,7 +801,7 @@ input:required:valid {
   max-height: 100%;
   margin-bottom: -50px;
   margin-top: -20px;
-  margin-left: -250px;
+  margin-left: -300px;
 }
 
 #post-snippet-tags {  
@@ -1181,7 +1182,7 @@ input:required:valid {
 
 .dashboard-edit-post-button a {
   font-family: 'Alegreya', serif;
-  font-size: 14px;
+  font-size: 8px;
   font-weight: bolder;
   text-decoration: none;
   color: #09071E;
@@ -1386,17 +1387,17 @@ input:required:valid {
   /* NAVBAR */
 
   #navbar-profile-info {
-   font-size: 8px; 
+   font-size: 6px; 
    width: 50%;
    flex: 0 0 70%;  
  }
  #navbar-sponsor-lead {
   margin: 15px;
-  font-size: 8px;
+  font-size: 6px;
 }
 
 #navbar-bookmark-title {
-  font-size: 10px;
+  font-size: 8px;
 }
 
 #heart {
