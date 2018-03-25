@@ -60,7 +60,7 @@ class ViewPost extends React.Component {
   render() {
     const renderedComments =
       this.props.comments.length !== 0 && this.props.comments !== undefined ? 
-      this.props.comments.map(comment => <CommentCard id={comment[0].comment.id} comment={comment[0]} />) : "Loading..."
+      this.props.comments.map(comment => <CommentCard id={comment[0].comment.id} comment={comment[0]} />) : "No comments yet on this post. Do you want to add to this conversation?"
     // Setup the rendering of the post body from editorState
     let html = 
       this.props.post !== undefined && this.props.post.length !== 0 ?
