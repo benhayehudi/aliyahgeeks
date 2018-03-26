@@ -16,7 +16,12 @@ class EditProfile extends React.Component {
     }
   }
   componentDidMount(){
-    this.props.loggedIn()
+    this.props.loggedIn();
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps) 

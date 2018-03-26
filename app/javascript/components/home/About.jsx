@@ -2,6 +2,12 @@ import React from 'react';
 import {emojify} from 'react-emojione';
 
 class About extends React.Component {
+  componentDidMount() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
+  }
   render() {
     return (
       <div className="post-container">

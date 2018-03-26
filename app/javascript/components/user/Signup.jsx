@@ -2,6 +2,12 @@ import React from 'react';
 import Navbar from '../containers/Navbar';
 
 class Signup extends React.Component {
+  componentDidMount() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
+  }
   render() {
     return (
       <React.Fragment>

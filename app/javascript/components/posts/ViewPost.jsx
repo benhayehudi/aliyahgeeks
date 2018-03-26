@@ -21,6 +21,11 @@ class ViewPost extends React.Component {
     this.props.getPost();
     this.props.getLikes();
     this.props.getAllComments();
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
   }
 
   addHeartCount = () => {

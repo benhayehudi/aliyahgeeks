@@ -12,6 +12,11 @@ class Home extends React.Component {
   componentDidMount() {
     this.props.loggedIn();
     this.props.getAllPosts();
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
   }
   render() {
     let loadedPosts = 

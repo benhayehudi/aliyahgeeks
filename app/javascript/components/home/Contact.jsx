@@ -1,6 +1,12 @@
 import React from 'react';
 
 class Contact extends React.Component {
+  componentDidMount() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
+  }
   render() {
     return (
       <div className="contact-container">
