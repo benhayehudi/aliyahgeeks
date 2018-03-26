@@ -8,9 +8,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share your aliyah journey on Rechov Aliyah">
+    <meta property="og:title" content="Rechov Aliyah" >
+    <meta property="og:description" content="Rechov Aliyah is a supportive online community for those who have either made aliyah or who are exploring it.">
+    <meta property="og:image" content="/assets/rechov-aliyah-header-img.png" />
   </head>
 
   <body>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116467756-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-116467756-1');
+  </script>
+
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
