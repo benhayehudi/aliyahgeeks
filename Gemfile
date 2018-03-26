@@ -35,6 +35,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'imagemagick-identify'
 gem 'rails_admin'
+gem 'paperclip-cloudinary'
 
 gem 'pry'
 
