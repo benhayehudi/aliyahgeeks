@@ -112,19 +112,19 @@ class ViewPost extends React.Component {
             
             <div id="post-actions">
               <button id="button-heart" data-type="hearts" onClick={() => this.addHeartCount()}>
-                <img src="/assets/icons/heart-icon.jpeg" />
+                <img src="/assets/icons/heart-icon.jpeg" id="reaction-img" />
                 <span id="like-number">{this.props.post.post.postlike !== undefined && this.props.post.post.postlike.length !== 0 ? this.props.post.post.postlike.hearts : 0}</span>
               </button> 
               <button id="button-star" data-type="stars" onClick={() => this.addStarCount()}>
-                <img src="/assets/icons/star-icon.png" />
+                <img src="/assets/icons/star-icon.png" id="reaction-img" />
                 <span id="like-number">{this.props.post.post.postlike !== undefined && this.props.post.post.postlike.length !== 0 ? this.props.post.post.postlike.likes : 0}</span>
               </button>
               <button id="button-hands" data-type="hands" onClick={() => this.addHandCount()}>
-                <img src="/assets/icons/hands-icon.png" />
+                <img src="/assets/icons/hands-icon.png" id="reaction-img" />
                 <span id="like-number">{this.props.post.post.postlike !== undefined && this.props.post.post.postlike.length !== 0 ? this.props.post.post.postlike.hands : 0}</span>
               </button>
               <button id="button-bookmark" onClick={() => this.addUserBookmark()}>
-                <img src="/assets/icons/bookmark-icon-small.png" />
+                <img src="/assets/icons/bookmark-icon-small.png" id="reaction-img" />
               </button> 
             </div>
             <div id="comments-container-container">

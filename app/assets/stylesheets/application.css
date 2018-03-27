@@ -1315,6 +1315,22 @@ input:required:valid {
   width: 80%;
 }
  
+
+/* COMMENTS */
+
+#comments-container {
+  width: 100%;
+}
+
+
+#single-comment {
+  margin: 0px;
+}
+
+#comment-date {
+  top: calc(1px - 0.25vw);
+}
+
 }
 
 /* Odd Sizes */
