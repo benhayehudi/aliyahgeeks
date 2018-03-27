@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(user_params)
     if @user.save 
+      UserMailer.new_user_email(@user).deliver_later
       redirect_to user_login_path
     else
       render json: { errors: @user.errors.full_messages }, status: :bad_request

@@ -30,6 +30,7 @@ def create
   if @user
     post = @user.posts.build(post_params)
     if post.save
+      UserMailer.new_post_email(post).deliver_later
       render json: post
     else
       render json: {message: "Post not saved"}, status: 400
