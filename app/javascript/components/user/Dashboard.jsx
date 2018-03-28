@@ -44,8 +44,14 @@ class Dashboard extends React.Component {
               <div id="dashboard-user-name">{this.props.signed_in && this.props.first_name && this.props.last_name ? this.props.first_name + " " + this.props.last_name : "Ploni Almoni"}</div>
               <div id="dashboard-edit-profile-link"><button className="dashboard-edit-profile-button"><a href={"/user/edit/" +this.props.id}>Edit Profile</a></button></div>
               <br />
-              <span id="dashboard-user-twitter"><img src="/assets/icons/twitter-icon.png" /><a href={"https://www.twitter.com/" +this.props.twitter}>{"@" + this.props.twitter}</a></span>
-              <span id="dashboard-user-email"><a href={"mailto:" + this.props.email}><img src="/assets/icons/email-icon.png" />{this.props.email}</a></span>
+              <span id="dashboard-user-twitter"><img src="/assets/icons/twitter-icon.png" />
+              { this.props.twitter !== null && this.props.twitter.length !== 0 ? 
+                <a href={"https://www.twitter.com/" +this.props.twitter}>{"@" + this.props.twitter}</a>
+              :
+              <a href={"/user/edit/" +this.props.id}>Add Twitter Profile</a>
+              }
+              </span>
+                <span id="dashboard-user-email"><a href={"mailto:" + this.props.email}><img src="/assets/icons/email-icon.png" />{this.props.email}</a></span>
             </div>
          </div>
         
