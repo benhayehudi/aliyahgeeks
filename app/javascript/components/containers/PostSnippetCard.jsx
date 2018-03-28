@@ -16,7 +16,6 @@ class PostSnippetCard extends React.Component {
       this.props.post !== undefined && this.props.post !== null ?
       this.props.post.postlike.hearts : "0"
 
-    console.log(postUrl)
       // this.props.post.postlike.map(reaction => <LikeCard reactions={reaction} key={reaction.hands}/>) : 0
     return (
         <div className="post-snippet-container">

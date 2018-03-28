@@ -109,6 +109,12 @@ class EditPost extends React.Component {
            padding: 2,
          },
         };
+
+      const postTitle = 
+      this.props.post.post !== undefined && this.props.post.post.length !== 0  && this.props.post.post.title !== null ? 
+        this.props.post.post.title 
+      : 
+        "Loading..."
     return (
       <React.Fragment>
         {this.props.signed_in ?  
@@ -124,7 +130,7 @@ class EditPost extends React.Component {
                   id="post-title-text" 
                   name="post[title]" 
                   onChange={this.handleOnChange}
-                  value={this.props.post.post.title !== undefined && this.props.post.post.title.length !== 0  && this.props.post.post.title !== null ? this.props.post.post.title : "Loading..."}
+                  value={postTitle}
                 />
               </span>
               <br />
