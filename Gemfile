@@ -37,6 +37,7 @@ gem 'imagemagick-identify'
 gem 'rails_admin'
 gem 'paperclip-cloudinary'
 gem 'twitter'
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
