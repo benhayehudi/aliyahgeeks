@@ -29,7 +29,7 @@ class Post < ApplicationRecord
   def tweet_new_post
     author_username = self.user.twtter ? self.user.twtter : "#{self.user.first_name} " + "#{self.user.last_name}" 
     title_dashed = self.title.parameterize
-    post_url = "http://www.rechovaliyah.com/" + "#{title_dashed}-" + "#{self.id}"
+    post_url = "http://www.rechovaliyah.com/post/view/" + "#{title_dashed}-" + "#{self.id}"
     $twitter.update("Read Our Latest Post!" + "\n" + "#{self.title} " + "\n" + "(author: @#{author_username})" + "\n" + "#{post_url}")
   end
 
