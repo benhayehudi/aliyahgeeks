@@ -101,7 +101,7 @@ class ViewPost extends React.Component {
             <div id="author-info">
               <h2>
                 <span id="author-img">
-                  <img src={this.props.post.user.headshot_url ? this.props.post.user.headshot_url : "/assets/default-author-headshot.png"} alt="author headshot" />
+                  <img src={this.props.post.post.user.headshot_url ? this.props.post.post.user.headshot_url : "/assets/default-author-headshot.png"} alt="author headshot" />
                 </span>
                 {this.props.post.author.first_name + ' ' + this.props.post.author.last_name}
                 <span id="post-author-twitter"><a href={"https://www.twitter.com/" + this.props.post.author.twtter}><img src="/assets/icons/twitter-icon.png" /></a></span>
