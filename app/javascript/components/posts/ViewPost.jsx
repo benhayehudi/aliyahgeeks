@@ -6,7 +6,7 @@ import { getAllComments, addComment } from '../../actions/CommentActions';
 import CommentCard from '../containers/CommentCard';
 import { convertToRaw, convertFromRaw } from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
-import $ from 'jquery';
+// import $ from 'jquery';
 import MetaTags from 'react-meta-tags';
 
 class ViewPost extends React.Component {

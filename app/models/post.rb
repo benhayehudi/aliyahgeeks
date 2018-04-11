@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one :postlike, :dependent => :delete
   has_many :users, :through => :bookmark
-  has_many :users, :through => :postlike
+  has_many :users, :through => :postlikes
   has_many :comments
   # after_create :create_postlike
 
