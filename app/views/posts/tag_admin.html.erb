@@ -1,0 +1,18 @@
+<h2>Update/Delete Existing Tags</h2>
+
+<form method="post" action="/tags/update">
+<% @tags.each do |tag| %>
+  <input type="text" name='<%="tagupdate#{tag.id}" %>' id="tag-update" value='<%= tag.name %>' > 
+  <label for="tag-delete">Delete?</label>
+  <input type="checkbox" id="tag-delete" name='<%="tag-delete-#{tag.id}"%>' value='<%= tag.id %>'>
+  <br />
+<% end %>
+<input type="submit" value="Submit">
+</form>
+
+<h2>Add Tags</h2>
+<form method="post" action="/tags/new">
+<label for="tag-add">New Tag:</label>
+<input type="text" name="tagadd">
+<input type="submit" value="Submit">
+</form>

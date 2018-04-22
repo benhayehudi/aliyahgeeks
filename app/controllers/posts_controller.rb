@@ -2,23 +2,18 @@ class PostsController < ApplicationController
 
 skip_before_action :verify_authenticity_token
 before_action :set_post, only: [:show, :update, :destroy, :edit]
-before_action :set_user, only: [:create, :update, :edit]
+before_action :set_user, only: [:create, :update, :edit, :tag_admin, :tag_new]
 
 def index 
-  # if params[:id]
-  #   @posts = Post.find_by(user_id: params[:id]).order(created_at: :desc)
-  #   render :json => @posts
-  # else
-    @posts = Post.all.where(publish: true).order(created_at: :desc).limit(5)
-    render :json => @posts
-  # end
+  @posts = Post.all.where(publish: true).order(created_at: :desc).limit(5)
+  render :json => @posts
 end
 
 def new
 end
 
 def show 
-  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url }
+  post_info = { :post => @post, :author => @post.author_info, :post_picture => @post.post_pic_url, :tags => @post.tags }
   render :json => post_info.to_json
 end
 
@@ -50,18 +45,30 @@ def update
 end
 
 def edit 
-
 end
-
-# def user_posts 
-#   @posts = Post.find_by(user_id: params[:id]).order(created_at: :desc)
-#   render :json => @posts
-# end
 
 def reaction
   postlikes = Postlike.find_or_create_by(post_id: params[:postId])
   postlikes.update(postlikes_params)
   render json: postlikes
+end
+
+def tag_admin 
+  @tags = Tag.all
+  if current_user.admin == true
+  else
+    redirect_to user_login_path
+  end
+end
+
+def tag_new 
+  if current_user.admin == true
+    tag = Tag.new(name: params[:tagadd]) 
+    tag.save
+    redirect_to tags_admin_path
+  else 
+    render json: {status: 'error', message: "You do not have permission to add a tag"} 
+  end
 end
 
 

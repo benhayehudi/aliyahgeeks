@@ -37,4 +37,8 @@ Rails.application.routes.draw do
   get '/conduct', to: 'pages#conduct'
   get '/contact', to: 'pages#contact'
 
+  get '/tags/admin', to: 'posts#tag_admin'
+  post '/tags/update', to: 'posts#tags_update'
+  post '/tags/new', to: 'posts#tag_new'
+
 end

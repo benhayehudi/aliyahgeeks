@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   has_one :postlike, :dependent => :delete
   has_many :users, :through => :bookmark
   has_many :users, :through => :postlikes
+  has_many :post_tags
+  has_many :tags, :through => :post_tags
   has_many :comments
   # after_create :create_postlike
 
