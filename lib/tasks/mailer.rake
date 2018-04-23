@@ -9,8 +9,7 @@ namespace :mailer do
   end
 
   task :post_reminder_now => :environment do
-      UserMailer.write_posts_reminder.deliver
-    end
+    UserMailer.write_posts_reminder.deliver
   end
 
 end
