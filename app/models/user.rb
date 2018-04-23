@@ -40,4 +40,5 @@ class User < ApplicationRecord
   def user_dashboard_info 
     User.select("id", "first_name", "last_name", "twtter", "image_file_name", "admin").where(id: self.id)
   end
+
 end

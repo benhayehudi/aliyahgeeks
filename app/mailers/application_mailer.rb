@@ -16,4 +16,13 @@ class ApplicationMailer < ActionMailer::Base
     @post = post
     mail(to: 'bengreenberg@gmail.com', subject: 'New Post on Rechov Aliyah')
   end
+
+  def write_posts_reminder 
+    @users = []
+    @users << User.left_outer_joins(:posts).where(posts: {id: nil})
+    @users << User.joins(:posts).where('posts.created_at <= ?', 2.week.ago)
+    @users.each do |user|
+      mail(to: user.email, subject: 'Share a Blog Post on Rechov Aliyah Today!')
+    end
+  end
 end

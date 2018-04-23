@@ -38,6 +38,7 @@ gem 'rails_admin'
 gem 'paperclip-cloudinary'
 gem 'twitter'
 gem 'pry'
+gem 'whenever', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
