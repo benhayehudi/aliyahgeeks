@@ -18,11 +18,13 @@ class ApplicationMailer < ActionMailer::Base
   end
 
   def write_posts_reminder 
-    @users = []
-    @users << User.left_outer_joins(:posts).where(posts: {id: nil})
-    @users << User.joins(:posts).where('posts.created_at <= ?', 2.week.ago)
+    @users = User.left_outer_joins(:posts).where(posts: {id: nil}) && User.joins(:posts).where('posts.created_at <= ?', 2.week.ago)
     @users.each do |user|
-      mail(to: user.email, subject: 'Share a Blog Post on Rechov Aliyah Today!')
+      mail(to: user.email, subject: 'Share a Blog Post on Rechov Aliyah Today!') do |format|
+        format.html {
+          render locals: { first_name: user.first_name }
+        }
+      end
     end
   end
 end
