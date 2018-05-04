@@ -4,6 +4,7 @@ import { EditorState } from 'draft-js';
 let initialState = {
   posts:[],
   current_post: [],
+  tags: [],
   drafts:[],
    currentDraft: {
       id: null,
@@ -58,6 +59,10 @@ function PostReducer(state = initialState, action) {
         case 'GET_ALL_POSTS':
           return Object.assign({}, state, {
             posts: action.data
+          })
+        case 'GET_TAGS':
+          return Object.assign({}, state, {
+            tags: action.data
           })
         default:
           return state;

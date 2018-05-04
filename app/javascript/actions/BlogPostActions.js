@@ -184,3 +184,15 @@ export function addBookmark(postId, userId) {
     .then(data => dispatch({ type: 'ADD_BOOKMARK', data: data }))
   }
 )}
+
+export function getTags() {
+  return (dispatch => {
+
+    const request = {
+      method: 'get',
+      data: JSON.stringify
+    };
+    axios.get('/tags')
+      .then(data => dispatch({ type: 'GET_TAGS', data: data.data }))
+  })
+}

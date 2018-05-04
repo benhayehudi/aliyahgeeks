@@ -115,6 +115,7 @@ class EditPost extends React.Component {
         this.props.post.post.title 
       : 
         "Loading..."
+      
     return (
       <React.Fragment>
         {this.props.signed_in ?  

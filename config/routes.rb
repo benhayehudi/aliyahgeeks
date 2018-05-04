@@ -41,4 +41,6 @@ Rails.application.routes.draw do
   post '/tags/update', to: 'posts#tags_update'
   post '/tags/new', to: 'posts#tag_new'
 
+  get '/tags', to: 'tags#index'
+
 end

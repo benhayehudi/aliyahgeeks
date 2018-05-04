@@ -68,12 +68,18 @@
 
 #post-snippet-tags {  
   font-family: 'Anonymous Pro', monospace;
-  font-size: 18px;
+  font-size: 24px;
   display: flex; 
   flex: 1; 
+  padding-top: 25px;
   padding-bottom: 5px;
   align-self: flex-end; 
   justify-content: flex-start;
+}
+
+#post-snippet-tags p:hover {
+  text-decoration: underline;
+  background: lightskyblue;
 }
 
 #post-snippet-tags p {

@@ -24,6 +24,7 @@ def create
   if @user
     post = @user.posts.build(post_params)
     if post.save
+      PostTag.create(post_id: post.id, tag_id: params[:post][:tag])
       UserMailer.new_post_email(post).deliver_later
       post.tweet_new_post
       render json: post
@@ -83,7 +84,7 @@ def set_post
 end
 
 def post_params
-  params.require('post').permit(:title, :tags, :image, :publish, :user_id, draft_json: {})
+  params.require('post').permit(:title, :image, :publish, :user_id, draft_json: {})
 end
 
 def postlikes_params 

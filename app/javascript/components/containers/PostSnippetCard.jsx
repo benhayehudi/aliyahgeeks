@@ -16,7 +16,6 @@ class PostSnippetCard extends React.Component {
       this.props.post !== undefined && this.props.post !== null ?
       this.props.post.postlike.hearts : "0"
 
-      // this.props.post.postlike.map(reaction => <LikeCard reactions={reaction} key={reaction.hands}/>) : 0
     return (
         <div className="post-snippet-container">
         <div id="post-snippet-title">
@@ -24,6 +23,7 @@ class PostSnippetCard extends React.Component {
           { this.props.post.user_id == this.props.id ? 
           <button className="dashboard-edit-post-button"><a href={"/posts/" + this.props.post.id + "/edit"}>Edit Post</a></button> : null
           }
+          
         </div>
         <div id="post-snippet-author-container">
           <div id="post-snippet-author-headshot">
@@ -34,6 +34,13 @@ class PostSnippetCard extends React.Component {
           </div>
         </div>
         <div className="post-snippet-footer">
+
+          <div id="post-snippet-tags">
+          <p>
+            { this.props.post.tags !== undefined && this.props.post.tags !== null && this.props.post.tags.length !== 0 ? 
+              "#" + this.props.post.tags[0].name : null }
+          </p>
+          </div>
          
           <div id="post-snippet-links">
             <div id="post-snippet-heart"><img src="/assets/icons/heart-icon.jpeg"/>

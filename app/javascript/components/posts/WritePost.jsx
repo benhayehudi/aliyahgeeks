@@ -3,7 +3,7 @@ import Navbar from '../containers/Navbar';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { Editor, RichUtils, getDefaultKeyBinding } from 'draft-js';
-import { saveEditorState, setCurrentDraft, getPostEdit } from '../../actions/BlogPostActions';
+import { saveEditorState, setCurrentDraft, getPostEdit, getTags } from '../../actions/BlogPostActions';
 import { loggedIn } from '../../actions/UserActions';
 import { BlockStyleControls, InlineStyleControls } from './StyleControls';
 import PostActions from './PostActions';
@@ -81,6 +81,7 @@ class WritePost extends React.Component {
 
    componentDidMount(){
     this.props.loggedIn();
+    this.props.getTags();
 
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -113,6 +114,9 @@ class WritePost extends React.Component {
            padding: 2,
          },
         };
+        
+    let tagList = this.props.tags !== undefined && this.props.tags !== null ?
+      this.props.tags.map(tag => <span><input name="post[tag]" id="post-tag" value={tag.id} type="radio" /><label htmlFor={tag.name}>{tag.name}</label></span>) : "Loading tags..."
     return (
       <React.Fragment>
         {this.props.signed_in ?  
@@ -130,6 +134,13 @@ class WritePost extends React.Component {
                   onChange={this.handleOnChange}
                 />
               </span>
+              <br />
+              <fieldset id="tags-list">
+                <legend>Pick A Topic</legend>
+                <div id="tag-div">
+                  {tagList}
+                </div>
+              </fieldset>
               <br />
               <fieldset id="publish-choice">
                 <legend>Ready to publish?</legend>
@@ -167,8 +178,6 @@ class WritePost extends React.Component {
                 </div>
               <PostActions />
             </div>
-
-
             </form>
             </div>
         </div>
@@ -197,7 +206,8 @@ const mapStateToProps = state => {
     headshot: state.users.headshot,
     editorState: state.posts.editorState,
     currentDraft: state.posts.currentDraft,
-    post: state.posts.current_post
+    post: state.posts.current_post,
+    tags: state.posts.tags
   }
 }
-export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn, getPostEdit })(WritePost)
+export default connect(mapStateToProps, { saveEditorState, setCurrentDraft, loggedIn, getPostEdit, getTags })(WritePost)
